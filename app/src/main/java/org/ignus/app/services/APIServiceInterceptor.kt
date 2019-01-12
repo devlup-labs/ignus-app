@@ -11,7 +11,11 @@ import javax.inject.Inject
 
 @Singleton
 class APIServiceInterceptor @Inject constructor() : Interceptor {
-    var jwtToken: String = INVALID_JWT_TOKEN
+    private var jwtToken: String = INVALID_JWT_TOKEN
+
+    fun setJwtToken(token: String) {
+        jwtToken = token
+    }
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {

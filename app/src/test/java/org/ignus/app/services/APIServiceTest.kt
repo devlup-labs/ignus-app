@@ -2,19 +2,37 @@ package org.ignus.app.services
 
 import org.junit.Assert.*
 import okhttp3.OkHttpClient
-import org.ignus.app.config.BASE_URL
+import okhttp3.mockwebserver.MockWebServer
+import org.ignus.app.mockdata.VALID_JWT_TOKEN
 import org.ignus.app.db.utils.LoginCredentials
+import org.ignus.app.mockdata.eventCategoryList
+import org.junit.After
+import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
+@RunWith(JUnit4::class)
 class APIServiceTest {
-    companion object {
-        private val okHttpClient = OkHttpClient.Builder()
+    private lateinit var mockServer: MockWebServer
+    private lateinit var service: APIService
+    private lateinit var okHttpClient: OkHttpClient
+
+    @Before
+    @Throws
+    fun setUp() {
+        mockServer = MockWebServer()
+        mockServer.setDispatcher(MockServerDispatcher())
+        mockServer.start()
+        val baseUrl = mockServer.url("")
+        okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(APIServiceInterceptor())
                 .build()
-        private val service = Retrofit.Builder()
-                .baseUrl(BASE_URL)
+        service = Retrofit.Builder()
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build().create(APIService::class.java)
@@ -22,11 +40,21 @@ class APIServiceTest {
 
     @Test
     fun testLogin() {
-        val call = service.login(LoginCredentials("random", "random"))
-        val response = call.execute()
-        if (!response.isSuccessful)
-            assertTrue(response.errorBody()!!
-                    .string()
-                    .contains("Unable to log in with provided credentials."))
+        val response = service.login(LoginCredentials("random", "random")).execute()
+        assertEquals(200, response.code())
+        assertEquals(VALID_JWT_TOKEN, response.body()?.token)
+    }
+
+    @Test
+    fun testGetEventCategories() {
+        val response = service.getEventCategories().execute()
+        assertEquals(200, response.code())
+        assertEquals(eventCategoryList, response.body())
+    }
+
+    @After
+    @Throws
+    fun tearDown() {
+        mockServer.shutdown()
     }
 }

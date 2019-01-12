@@ -43,6 +43,7 @@ dependencies {
 
     // MockWebServer
     testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
+    testImplementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
     // RX Java
     implementation 'io.reactivex.rxjava2:rxjava:2.2.4'

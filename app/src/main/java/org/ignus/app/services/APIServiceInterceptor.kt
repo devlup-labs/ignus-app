@@ -16,14 +16,15 @@ class APIServiceInterceptor @Inject constructor() : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
-        if (request.header(NO_AUTH_HEADER_KEY) == null) {
+        request = if (request.header(NO_AUTH_HEADER_KEY) == null) {
             if (jwtToken == INVALID_JWT_TOKEN)
                 throw RuntimeException(":param `jwtToken` should be set for authorization required endpoints")
-            else request = request.newBuilder()
+            else request.newBuilder()
                     .addHeader("Authorization", "JWT $jwtToken")
                     .build()
-        }
-        println("*/*/*/*/* Request headers => ${request.headers()}")
+        } else request.newBuilder()
+                .removeHeader(NO_AUTH_HEADER_KEY)
+                .build()
         return chain.proceed(request)
     }
 }

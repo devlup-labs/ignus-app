@@ -1,4 +1,4 @@
-package org.ignus.app.di.module
+package org.ignus.app.di.modules
 
 import android.app.Application
 import android.content.Context

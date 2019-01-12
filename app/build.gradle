@@ -34,7 +34,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
-    kapt 'com.android.databinding:compiler:3.2.1'
+    // kapt 'com.android.databinding:compiler:3.2.1'
 
     // UI
     implementation 'androidx.appcompat:appcompat:1.0.2'

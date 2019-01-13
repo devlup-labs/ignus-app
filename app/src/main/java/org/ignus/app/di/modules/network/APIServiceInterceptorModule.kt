@@ -8,7 +8,7 @@ import org.ignus.app.services.APIServiceInterceptor
 @Module
 class APIServiceInterceptorModule {
     @Provides
-    @PerApplication
+//    @PerApplication
     fun provideAPIServiceInterceptor(): APIServiceInterceptor {
         return APIServiceInterceptor()
     }

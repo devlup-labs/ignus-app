@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 @Module(includes = [OkHttpClientModule::class])
 class APIServiceModule {
     @Provides
-    @PerApplication
+//    @PerApplication
     fun provideAPIService(okHttpClient: OkHttpClient): APIService {
         return Retrofit.Builder()
                 .baseUrl(BASE_URL)

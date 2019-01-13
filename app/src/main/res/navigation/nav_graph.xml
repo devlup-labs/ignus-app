@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/eventCategoriesFragment"
-        android:name="org.ignus.app.ui.categories.EventCategories"
+        android:name="org.ignus.app.ui.categories.EventCategoriesFragment"
         android:label="@string/nav_event_details"
         tools:layout="@layout/fragment_event_categories">
         <action

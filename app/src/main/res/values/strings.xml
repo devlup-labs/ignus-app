@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">Ignus\'19</string>
+    <string name="app_name" translatable="false">Ignus\'19</string>
+
+    <string name="hello_blank_fragment">Home</string>
+
+    //--------------------------------------------------------------------------------------------//
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_event_details">Events Details</string>
+    <string name="nav_contacts">Contacts</string>
+    <string name="nav_faqs">FAQs</string>
+    <string name="nav_sponsors">Sponsors</string>
+    <string name="nav_about_us">About Us</string>
+    <string name="nav_developers">Developers</string>
+    <string name="nav_header_dummy_1">Abhinav Suthar</string>
+    <string name="nav_header_dummy_2" translatable="false">abhinav.suthar.50@gmail.com</string>
+    <string name="nav_registered_events">Registered Events</string>
+
 </resources>

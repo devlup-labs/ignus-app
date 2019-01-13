@@ -1,12 +1,13 @@
-package org.ignus.app
+package org.ignus.app.ui.events
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import org.ignus.app.R
 
-class MainActivity : AppCompatActivity() {
+class EventList : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_event_list)
     }
 }

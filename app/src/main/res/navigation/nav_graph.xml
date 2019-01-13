@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="org.ignus.app.ui.HomeFragment"
+        android:label="@string/nav_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/eventCategoriesFragment"
+        android:name="org.ignus.app.ui.categories.EventCategories"
+        android:label="@string/nav_event_details"
+        tools:layout="@layout/fragment_event_categories">
+        <action
+            android:id="@+id/action_eventCategoriesFragment_to_eventList"
+            app:destination="@id/eventList" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="org.ignus.app.ui.contacts.ContactsFragment"
+        android:label="@string/nav_contacts"
+        tools:layout="@layout/fragment_contacts" />
+    <fragment
+        android:id="@+id/sponsorsFragment"
+        android:name="org.ignus.app.ui.sponsors.SponsorsFragment"
+        android:label="@string/nav_sponsors"
+        tools:layout="@layout/fragment_sponsors" />
+    <activity
+        android:id="@+id/eventList"
+        android:name="org.ignus.app.ui.events.EventList"
+        android:label="Event List"
+        tools:layout="@layout/activity_event_list" />
+</navigation>

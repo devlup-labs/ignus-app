@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_blank_fragment">होम</string>
+    <string name="nav_event_details">घटनाक्रम का विवरण</string>
+    <string name="nav_contacts">संपर्क</string>
+    <string name="nav_sponsors">प्रायोजक</string>
+    <string name="nav_about_us">हमारे बारे में</string>
+    <string name="nav_developers">डेवलपर्स</string>
+    <string name="nav_faqs">सामान्य प्रश्न</string>
+    <string name="nav_registered_events">पंजीकृत घटनाएँ</string>
+    <string name="nav_header_dummy_1">अभिनव सुथार</string>
+    <string name="nav_home">होम</string>
+</resources>

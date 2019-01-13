@@ -1,0 +1,194 @@
+{
+  "data": [
+    {
+      "parent_type": "3",
+      "name": "Aeromodelling",
+      "cover": "https://ignus.org/media/event_category/aero7_z7GVgO8.png",
+      "events": [
+        {
+          "name": "Balsa Glider",
+          "cover_url": null,
+          "date_time": "2019-02-22T12:00:00+05:30",
+          "unique_id": "bg2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 3,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "RC Plane",
+          "cover_url": null,
+          "date_time": "2019-02-22T19:30:46+05:30",
+          "unique_id": "rp2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 4,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/Nitesh_Rai.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "parent_type": "3",
+      "name": "Astronomy",
+      "cover": "https://ignus.org/media/event_category/astro1.png",
+      "events": [
+        {
+          "name": "Astro-Quiz",
+          "cover_url": null,
+          "date_time": "2019-02-22T12:00:00+05:30",
+          "unique_id": "aq2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 5,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "parent_type": "3",
+      "name": "Automobile",
+      "cover": "https://ignus.org/media/event_category/automobile2.png",
+      "events": [
+        {
+          "name": "Auto-Quiz",
+          "cover_url": null,
+          "date_time": "2019-02-22T15:00:16+05:30",
+          "unique_id": "tq2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 3,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Cad Knight",
+          "cover_url": null,
+          "date_time": "2019-02-22T12:00:00+05:30",
+          "unique_id": "ck2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 3,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "parent_type": "3",
+      "name": "Civil",
+      "cover": "https://ignus.org/media/event_category/bridge.png",
+      "events": [
+        {
+          "name": "Popsicle BRIDGE",
+          "cover_url": null,
+          "date_time": "2019-02-22T12:00:00+05:30",
+          "unique_id": "pb2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 3,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

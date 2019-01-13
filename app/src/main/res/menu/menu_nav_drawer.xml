@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeFragment"
+            android:icon="@drawable/nav_home"
+            android:title="@string/nav_home" />
+        <item
+            android:id="@+id/eventCategoriesFragment"
+            android:icon="@drawable/nav_event_details"
+            android:title="@string/nav_event_details" />
+
+        <item
+            android:id="@+id/nav_registered_event"
+            android:icon="@drawable/nav_pro_night"
+            android:title="@string/nav_registered_events" />
+
+        <item
+            android:id="@+id/contactsFragment"
+            android:icon="@drawable/nav_contacts"
+            android:title="@string/nav_contacts"/>
+
+        <item
+            android:id="@+id/nav_faqs"
+            android:icon="@drawable/nav_faqs"
+            android:title="@string/nav_faqs" />
+
+        <item
+            android:id="@+id/sponsorsFragment"
+            android:icon="@drawable/nav_sponsors"
+            android:title="@string/nav_sponsors" />
+
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/nav_about_us"
+            android:title="@string/nav_about_us"/>
+
+        <item
+            android:id="@+id/nav_developers"
+            android:icon="@drawable/nav_developers"
+            android:title="@string/nav_developers"/>
+
+    </group>
+</menu>

@@ -11,15 +11,13 @@ import javax.inject.Singleton
 @Module
 class ApplicationModule(private val baseApp: BaseApp) {
     @Provides
-    @Singleton
-    @PerApplication
+//    @PerApplication
     fun provideApplication(): Application {
         return baseApp
     }
 
     @Provides
-    @Singleton
-    @PerApplication
+//    @PerApplication
     fun provideApplicationContext(): Context {
         return baseApp.applicationContext
     }

@@ -9,7 +9,7 @@ import org.ignus.app.services.APIServiceInterceptor
 @Module(includes = [APIServiceInterceptorModule::class])
 class OkHttpClientModule {
     @Provides
-    @PerApplication
+//    @PerApplication
     fun provideOkHttpClient(apiServiceInterceptor: APIServiceInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
                 .addInterceptor(apiServiceInterceptor)

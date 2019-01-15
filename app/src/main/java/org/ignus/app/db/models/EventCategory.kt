@@ -1,9 +1,12 @@
 package org.ignus.app.db.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class EventCategory(@SerializedName("name")
+@Entity
+data class EventCategory(@PrimaryKey @SerializedName("name")
                          val name: String = "",
                          @SerializedName("parent_type")
                          val parentType: String = "",

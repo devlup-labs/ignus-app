@@ -4,12 +4,12 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import org.ignus.app.config.INVALID_JWT_TOKEN
 import org.ignus.app.config.NO_AUTH_HEADER_KEY
+import org.ignus.app.di.scope.PerApplication
 import java.io.IOException
-import javax.inject.Singleton
 import javax.inject.Inject
 
 
-@Singleton
+//@PerApplication
 class APIServiceInterceptor @Inject constructor() : Interceptor {
     private var jwtToken: String = INVALID_JWT_TOKEN
 

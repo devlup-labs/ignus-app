@@ -21,6 +21,7 @@
             tools:src="@tools:sample/backgrounds/scenic" />
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"

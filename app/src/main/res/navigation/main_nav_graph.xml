@@ -7,18 +7,14 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="org.ignus.app.ui.HomeFragment"
+        android:name="org.ignus.app.ui.home.HomeFragment"
         android:label="@string/nav_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/eventCategoriesFragment"
-        android:name="org.ignus.app.ui.categories.EventCategories"
+        android:name="org.ignus.app.ui.categories.EventCategoriesFragment"
         android:label="@string/nav_event_details"
-        tools:layout="@layout/fragment_event_categories">
-        <action
-            android:id="@+id/action_eventCategoriesFragment_to_eventList"
-            app:destination="@id/eventList" />
-    </fragment>
+        tools:layout="@layout/fragment_event_categories" />
     <fragment
         android:id="@+id/contactsFragment"
         android:name="org.ignus.app.ui.contacts.ContactsFragment"
@@ -29,9 +25,4 @@
         android:name="org.ignus.app.ui.sponsors.SponsorsFragment"
         android:label="@string/nav_sponsors"
         tools:layout="@layout/fragment_sponsors" />
-    <activity
-        android:id="@+id/eventList"
-        android:name="org.ignus.app.ui.events.EventList"
-        android:label="Event List"
-        tools:layout="@layout/activity_event_list" />
 </navigation>

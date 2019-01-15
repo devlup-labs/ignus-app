@@ -1,6 +1,7 @@
 package org.ignus.app.db.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class EventCategory(@SerializedName("name")
                          val name: String = "",
@@ -11,4 +12,4 @@ data class EventCategory(@SerializedName("name")
                          @SerializedName("about")
                          val about: String = "",
                          @SerializedName("events")
-                         val events: List<Event>?)
+                         val events: List<Event>?) : Serializable

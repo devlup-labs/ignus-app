@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Ignus\'19</string>
+    <string name="app_name" translatable="false">Ignus</string>
 
     <string name="hello_blank_fragment">Home</string>
 
@@ -15,5 +15,12 @@
     <string name="nav_header_dummy_1">Abhinav Suthar</string>
     <string name="nav_header_dummy_2" translatable="false">abhinav.suthar.50@gmail.com</string>
     <string name="nav_registered_events">Registered Events</string>
+
+    <string name="bottom_nav_cultural">Cultural</string>
+    <string name="bottom_nav_technical">Technical</string>
+    <string name="bottom_nav_flagship">Flagship</string>
+
+    <string name="open_drawer" translatable="false">open_drawer</string>
+    <string name="close_drawer" translatable="false">close_drawer</string>
 
 </resources>

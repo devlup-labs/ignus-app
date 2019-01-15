@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import kotlinx.android.synthetic.main.activity_event_details.*
 import org.ignus.app.R
 
-class EventDetails : AppCompatActivity() {
+class EventDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

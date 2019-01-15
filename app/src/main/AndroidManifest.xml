@@ -19,9 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.events.EventList" />
+        <activity android:name=".ui.events.EventListActivity" />
         <activity
-            android:name=".ui.event.EventDetails"
+            android:name=".ui.event.EventDetailsActivity"
             android:theme="@style/FullScreen" />
 
         <service

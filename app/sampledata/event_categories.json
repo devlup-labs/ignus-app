@@ -1,0 +1,314 @@
+{
+  "data": [
+    {
+      "parent_type": "3",
+      "name": "Aeromodelling",
+      "cover": "https://ignus.org/media/event_category/aero7_z7GVgO8.png",
+      "events": [
+        {
+          "name": "Balsa Glider",
+          "cover_url": null,
+          "date_time": "2019-02-22T12:00:00+05:30",
+          "unique_id": "bg2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 3,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "RC Plane",
+          "cover_url": null,
+          "date_time": "2019-02-22T19:30:46+05:30",
+          "unique_id": "rp2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 4,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/Nitesh_Rai.jpg"
+            }
+          ]
+        }
+      ],
+      "about": "<p>People have always understood that flight was possible from observing birds, but it took thousands of years to actually achieve and there were many hurdles along the way. Perhaps, Gliding is the most elegant and easy way that humans can get airborne. It is an exciting way to fly, soaring on the same rising currents of air that the birds use, with no roaring engine to spoil the peace. This experience is a perfect introduction to gliding, giving you the chance to really&nbsp;get to grips with it.&nbsp;</p>"
+    },
+    {
+      "parent_type": "3",
+      "name": "Astronomy",
+      "cover": "https://ignus.org/media/event_category/astro1.png",
+      "events": [
+        {
+          "name": "Astro-Quiz",
+          "cover_url": null,
+          "date_time": "2019-02-22T12:00:00+05:30",
+          "unique_id": "aq2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 5,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        }
+      ],
+      "about": "<p>Ever fascinated by the intricacies of the universe? About how the galaxies were formed, How stars live and die, and how does all this relate to the simple laws that govern how your Cold drink cools? If the cosmic puzzle fascinates you, come challenge yourself with some of the greatest mysteries humankind has ever faced.</p>"
+    },
+    {
+      "parent_type": "3",
+      "name": "Automobile",
+      "cover": "https://ignus.org/media/event_category/automobile2.png",
+      "events": [
+        {
+          "name": "Auto-Quiz",
+          "cover_url": null,
+          "date_time": "2019-02-22T15:00:16+05:30",
+          "unique_id": "tq2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 3,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Cad Knight",
+          "cover_url": null,
+          "date_time": "2019-02-22T12:00:00+05:30",
+          "unique_id": "ck2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 3,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Full Throttle",
+          "cover_url": null,
+          "date_time": "2019-02-24T12:00:00+05:30",
+          "unique_id": "ft2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 2,
+          "max_team_size": 4,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        }
+      ],
+      "about": "<p style=\"text-align:center\">Consists of all events for automobile</p>"
+    },
+    {
+      "parent_type": "3",
+      "name": "Civil",
+      "cover": "https://ignus.org/media/event_category/bridge.png",
+      "events": [
+        {
+          "name": "Popsicle BRIDGE",
+          "cover_url": null,
+          "date_time": "2019-02-22T12:00:00+05:30",
+          "unique_id": "pb2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 3,
+          "organiser_list": [
+            {
+              "name": "Parth Joshi",
+              "phone": "7597863253",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/parth.jpeg"
+            },
+            {
+              "name": "Nitesh Rai",
+              "phone": "8079016951",
+              "email": "tech@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/nitesh.jpeg"
+            }
+          ]
+        }
+      ],
+      "about": "<p style=\"text-align:center\">Consists event for civil</p>"
+    },
+    {
+      "parent_type": "1",
+      "name": "Dance",
+      "cover": "https://ignus.org/media/event_category/dance6_xWM0m9r.png",
+      "events": [
+        {
+          "name": "Brace To Grace",
+          "cover_url": "https://ignus.org/media/event/WhatsApp_Image_2018-12-29_at_10.19.35_PM_AYMvKEp.jpeg",
+          "date_time": "2019-02-21T18:00:00+05:30",
+          "unique_id": "dcyd2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 2,
+          "max_team_size": 2,
+          "organiser_list": [
+            {
+              "name": "Divij Gupta",
+              "phone": "9588895644",
+              "email": "cult@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/Ignus_logo.jpg"
+            },
+            {
+              "name": "Lovish Singla",
+              "phone": "9610778146",
+              "email": "cult@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/Lovish.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Feet Don't Fall",
+          "cover_url": "https://ignus.org/media/event/WhatsApp_Image_2018-12-29_at_10.19.35_PM.jpeg",
+          "date_time": "2019-02-21T18:00:00+05:30",
+          "unique_id": "dttt2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 1,
+          "max_team_size": 1,
+          "organiser_list": [
+            {
+              "name": "Divij Gupta",
+              "phone": "9588895644",
+              "email": "cult@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/Ignus_logo.jpg"
+            },
+            {
+              "name": "Lovish Singla",
+              "phone": "9610778146",
+              "email": "cult@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/Lovish.jpg"
+            }
+          ]
+        },
+        {
+          "name": "Hoof IT!",
+          "cover_url": "https://ignus.org/media/event/WhatsApp_Image_2018-12-29_at_10.19.03_PM.jpeg",
+          "date_time": "2019-02-23T18:00:00+05:30",
+          "unique_id": "dots2019",
+          "location": {
+            "name": "",
+            "longitude": null,
+            "latitude": null
+          },
+          "min_team_size": 2,
+          "max_team_size": 2,
+          "organiser_list": [
+            {
+              "name": "Divij Gupta",
+              "phone": "9588895644",
+              "email": "cult@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/Ignus_logo.jpg"
+            },
+            {
+              "name": "Lovish Singla",
+              "phone": "9610778146",
+              "email": "cult@ignus.org",
+              "avatar_url": "https://ignus.org/media/avatar/Lovish.jpg"
+            }
+          ]
+        }
+      ],
+      "about": "<p>&ldquo;Consciousness expresses itself through creation. This world we live in is the dance of the creator. Dancers come and go in the twinkling of an eye but the dance lives on. On many an occasion when I am dancing, I have felt touched by something sacred. In those moments, I felt my spirit soar and become one with everything that exists.&rdquo; -Michael Jackson</p>\r\n\r\n<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IGNUS brings you a bevy of dance competitions to &nbsp;give a vent to your inner dancer, a budding artist.</strong></p>"
+    }
+  ]
+}

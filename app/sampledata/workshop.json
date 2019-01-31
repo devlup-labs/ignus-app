@@ -1,0 +1,160 @@
+{
+  "data": [
+    {
+      "name": "Digital Marketing",
+      "slug": "digital-marketing",
+      "type": "A",
+      "venue": null,
+      "date_time": "2019-02-22T10:00:00+05:30",
+      "unique_id": "digws",
+      "cover": "https://ignus.org/media/workshop/finance_xLtwHXV.png",
+      "pdf": null,
+      "about": "<p>Digital Marketing is a integral of everyone life everyone of us is&nbsp;<br />\r\nsurrounded by digital marketing by some way or other ,&nbsp;<br />\r\nnowadays we carrying a full fledged market in our pockets. Lets&nbsp;<br />\r\nunderstand how you can turn customers through digital&nbsp;<br />\r\nmarketing .<br />\r\nPeople spend twice as much time online. And while we say it a&nbsp;<br />\r\nlot, the way people shop and buy really has changed, meaning&nbsp;<br />\r\noffline marketing isn&rsquo;t as effective as it used to be.<br />\r\nMarketing has always been about connecting with your audience&nbsp;<br />\r\nin the right place and at the right time. Today, that means that&nbsp;<br />\r\nyou need to meet them where they are already spending time: on&nbsp;<br />\r\nthe internet.</p>",
+      "details": null,
+      "custom_html_upper": "",
+      "custom_html_lower": "",
+      "location": {
+        "name": "",
+        "longitude": null,
+        "latitude": null
+      },
+      "organiser_list": [
+        {
+          "name": "Gautam Jain",
+          "phone": "7404441029",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/Gautam_Jain.jpg"
+        },
+        {
+          "name": "Vishal Jain",
+          "phone": "8058418114",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/Vishal_Jain.jpg"
+        },
+        {
+          "name": "Subham Kant Das",
+          "phone": "9982516353",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/IMG_20180811_122012_1.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Internet of Things",
+      "slug": "internet-things",
+      "type": "B",
+      "venue": null,
+      "date_time": "2019-02-22T10:00:00+05:30",
+      "unique_id": "intws",
+      "cover": "https://ignus.org/media/workshop/iot_rNxAPxw.png",
+      "pdf": null,
+      "about": "<p>Get expertise in Internet Of Things and dive in the practical aspects of learning. The workshop has no prerequisites and you get to interact and learn the experience of Internet Of Things from scratch. Enhance your knowledge in coding, get into the smart world and build your own smart devices.</p>\r\n\r\n<p>&nbsp;</p>",
+      "details": null,
+      "custom_html_upper": "",
+      "custom_html_lower": "",
+      "location": {
+        "name": "",
+        "longitude": null,
+        "latitude": null
+      },
+      "organiser_list": [
+        {
+          "name": "Gautam Jain",
+          "phone": "7404441029",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/Gautam_Jain.jpg"
+        },
+        {
+          "name": "Vishal Jain",
+          "phone": "8058418114",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/Vishal_Jain.jpg"
+        },
+        {
+          "name": "Subham Kant Das",
+          "phone": "9982516353",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/IMG_20180811_122012_1.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Tall Buildings and Structures",
+      "slug": "tall-buildings-and-structures",
+      "type": "A",
+      "venue": null,
+      "date_time": "2019-02-24T10:00:00+05:30",
+      "unique_id": "talws",
+      "cover": "https://ignus.org/media/workshop/tall3.png",
+      "pdf": null,
+      "about": "<p>IGNUS, the Annual Techno-Cultural festival of Indian Institute of Technology Jodhpur brings to you a great opportunity to learn the practical aspects of tall buildings. Explore the various techniques in designing and analysis of a tall building and build it yourself with a perfect guidance.</p>",
+      "details": null,
+      "custom_html_upper": "",
+      "custom_html_lower": "",
+      "location": {
+        "name": "",
+        "longitude": null,
+        "latitude": null
+      },
+      "organiser_list": [
+        {
+          "name": "Gautam Jain",
+          "phone": "7404441029",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/Gautam_Jain.jpg"
+        },
+        {
+          "name": "Vishal Jain",
+          "phone": "8058418114",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/Vishal_Jain.jpg"
+        },
+        {
+          "name": "Subham Kant Das",
+          "phone": "9982516353",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/IMG_20180811_122012_1.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Sixth Sense Robotics",
+      "slug": "sixth-sense-robotics",
+      "type": "A",
+      "venue": null,
+      "date_time": "2019-02-24T10:00:00+05:30",
+      "unique_id": "sixws",
+      "cover": "https://ignus.org/media/workshop/sixthSense1.png",
+      "pdf": null,
+      "about": "<p>Sixth sense technology is a revolutionary technology that can change the physical world around us and make it more simpler.</p>\r\n\r\n<p>This course introduces you to the amazing world of sixth sense technology and its fascinating applications. Using an Arduino board and other electronic components, you will develop a robot that can be controlled through digital information. The digital information is processed using the image processing technique which takes the input data from the user who can give commands using hand gestures.</p>\r\n\r\n<p>Apart from gaining practical skills on Sixth Sense technology, you will learn about the Arduino Architecture, Arduino Programming, Image Processing technology by doing this project based course.</p>",
+      "details": null,
+      "custom_html_upper": "",
+      "custom_html_lower": "",
+      "location": {
+        "name": "",
+        "longitude": null,
+        "latitude": null
+      },
+      "organiser_list": [
+        {
+          "name": "Gautam Jain",
+          "phone": "7404441029",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/Gautam_Jain.jpg"
+        },
+        {
+          "name": "Vishal Jain",
+          "phone": "8058418114",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/Vishal_Jain.jpg"
+        },
+        {
+          "name": "Subham Kant Das",
+          "phone": "9982516353",
+          "email": "workshop@ignus.org",
+          "avatar_url": "https://ignus.org/media/avatar/IMG_20180811_122012_1.jpg"
+        }
+      ]
+    }
+  ]
+}

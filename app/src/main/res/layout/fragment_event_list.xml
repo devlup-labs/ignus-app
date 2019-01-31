@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.EventListFragment">
+
+    <!--<com.google.android.material.appbar.AppBarLayout-->
+    <!--android:id="@+id/appbar_event_list"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:fitsSystemWindows="true"-->
+    <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
+
+    <!--<com.google.android.material.appbar.CollapsingToolbarLayout-->
+    <!--android:id="@+id/collapsing_toolbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="256dip"-->
+    <!--android:fitsSystemWindows="true"-->
+    <!--app:contentScrim="?android:attr/colorPrimary"-->
+    <!--app:expandedTitleMarginBottom="20dp"-->
+    <!--app:expandedTitleMarginEnd="16dp"-->
+    <!--app:expandedTitleMarginStart="16dp"-->
+    <!--app:layout_scrollFlags="scroll|exitUntilCollapsed"-->
+    <!--app:scrimAnimationDuration="200">-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/ed_logo"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:contentDescription="@string/app_name"-->
+    <!--android:fitsSystemWindows="true"-->
+    <!--android:scaleType="centerCrop"-->
+    <!--app:layout_collapseMode="parallax"-->
+    <!--tools:src="@tools:sample/avatars" />-->
+
+    <!--<androidx.appcompat.widget.Toolbar-->
+    <!--android:id="@+id/toolbar_event_list"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="?android:attr/actionBarSize"-->
+    <!--app:layout_collapseMode="pin"-->
+    <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="end"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/ed_moreDetails"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="end"-->
+    <!--android:background="@drawable/temp"-->
+    <!--android:clickable="true"-->
+    <!--android:focusable="true"-->
+    <!--android:padding="16dp"-->
+    <!--android:text="@string/more_details"-->
+    <!--android:textColor="#FFF" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/ed_pdf"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="end"-->
+    <!--android:background="@drawable/temp"-->
+    <!--android:clickable="true"-->
+    <!--android:focusable="true"-->
+    <!--android:padding="16dp"-->
+    <!--android:text="@string/download_pdf"-->
+    <!--android:textColor="#FFF"-->
+    <!--android:visibility="gone" />-->
+    <!--</LinearLayout>-->
+
+    <!--</com.google.android.material.appbar.CollapsingToolbarLayout>-->
+
+    <!--</com.google.android.material.appbar.AppBarLayout>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/event_list_card_1" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

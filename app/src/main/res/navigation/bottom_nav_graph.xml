@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/culturalEventsFragment">
+
+    <fragment
+        android:id="@+id/culturalEventsFragment"
+        android:name="org.ignus.ui.CulturalEventsFragment"
+        android:label="Cultural"
+        tools:layout="@layout/fragment_cultural_events" />
+    <fragment
+        android:id="@+id/technicalEventsFragment"
+        android:name="org.ignus.ui.TechnicalEventsFragment"
+        android:label="Technical"
+        tools:layout="@layout/fragment_technical_events" />
+    <fragment
+        android:id="@+id/flagshipEventsFragment"
+        android:name="org.ignus.ui.FlagshipEventsFragment"
+        android:label="Flagship"
+        tools:layout="@layout/fragment_flagship_events" />
+</navigation>

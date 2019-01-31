@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/homeFragment">
+
+    <!--<include-->
+        <!--android:id="@+id/bottom_nav_graph0"-->
+        <!--app:graph="@navigation/bottom_nav_graph" />-->
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="org.ignus.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/eventCategoriesFragment"
+        android:name="org.ignus.ui.EventCategoriesFragment"
+        android:label="Event Categories"
+        tools:layout="@layout/fragment_event_categories">
+        <action
+            android:id="@+id/eventCategoriesFragment_to_eventListFragment"
+            app:destination="@id/eventListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workshopsFragment"
+        android:name="org.ignus.ui.WorkshopsFragment"
+        android:label="Workshops"
+        tools:layout="@layout/fragment_workshops">
+        <action
+            android:id="@+id/workshopsFragment_to_workshopDetailsFragment"
+            app:destination="@id/workshopDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="org.ignus.ui.ContactsFragment"
+        android:label="Contacts"
+        tools:layout="@layout/fragment_contacts" />
+    <fragment
+        android:id="@+id/sponsorsFragment"
+        android:name="org.ignus.ui.SponsorsFragment"
+        android:label="Sponsors"
+        tools:layout="@layout/fragment_sponsors" />
+    <fragment
+        android:id="@+id/aboutIgnusFragment"
+        android:name="org.ignus.ui.AboutIgnusFragment"
+        android:label="About Ignus"
+        tools:layout="@layout/fragment_about_ignus" />
+    <fragment
+        android:id="@+id/eventListFragment"
+        android:name="org.ignus.ui.EventListFragment"
+        android:label="Event List"
+        tools:layout="@layout/fragment_event_list" />
+    <fragment
+        android:id="@+id/workshopDetailsFragment"
+        android:name="org.ignus.ui.WorkshopDetailsFragment"
+        android:label="WorkshopDetailsFragment"
+        tools:layout="@layout/event_categories_card_2" />
+    <fragment
+        android:id="@+id/prakritiEventsFragment"
+        android:name="org.ignus.ui.PrakritiEventsFragment"
+        android:label="Prakriti"
+        tools:layout="@layout/fragment_prakriti_events" />
+</navigation>

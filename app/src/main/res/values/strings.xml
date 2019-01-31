@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name" translatable="false">Ignus\'19</string>
+
+    //--------------------------------------------------------------------------------------------//
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_event_details">Events Details</string>
+    <string name="nav_workshops">Workshops</string>
+    <string name="nav_contacts">Contacts</string>
+    <string name="nav_sponsors">Sponsors</string>
+    <string name="nav_about_ignus">About Us</string>
+    <string name="nav_developers">Developers</string>
+    <string name="nav_login">Login</string>
+
+    <string name="nav_header_name">Abhinav Suthar</string>
+    <string name="nav_header_email" translatable="false">abhinav.suthar.50@gmail.com</string>
+    <string name="image_content_description">Image Content Description</string>
+
+    <string name="bottom_nav_cultural">Cultural</string>
+    <string name="bottom_nav_technical">Technical</string>
+    <string name="bottom_nav_flagship">Flagship</string>
+    <string name="bottom_nav_prakriti" translatable="false">Prakriti</string>
+
+    <string name="team_size">Team size - Min:%1$d Max:%2$d</string>
+
+    <string name="workshop_about">&lt;b>About:&lt;/b> %1$s</string>
+    <string name="workshop_details">&lt;b>Details:&lt;/b> %1$s</string>
+    <string name="workshop_time" translatable="false">%1$s - %2$s</string>
+
+    <string name="event_details" translatable="false">&lt;b>Details:&lt;/b> %1$s&lt;b>About:&lt;/b> %2$s&lt;br></string>
+
+</resources>

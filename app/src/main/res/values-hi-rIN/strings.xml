@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="nav_home">होम</string>
+    <string name="nav_event_details">घटनाक्रम का विवरण</string>
+    <string name="nav_contacts">संपर्क</string>
+    <string name="nav_sponsors">प्रायोजक</string>
+    <string name="nav_about_ignus">हमारे बारे में</string>
+    <string name="nav_developers">डेवलपर्स</string>
+    <string name="nav_header_name">अभिनव सुथार</string>
+    <string name="nav_workshops">कार्यशालाएं</string>
+
+    <string name="bottom_nav_cultural">सांस्कृतिक</string>
+    <string name="bottom_nav_technical">तकनीकी</string>
+    <string name="bottom_nav_flagship">प्रमुख</string>
+    <string name="image_content_description">छवि सामग्री विवरण</string>
+    <string name="nav_login">लॉग इन करें</string>
+    <string name="team_size">समुहआकार -  न्यूनतम:%1$d ज्यादा से ज्यादा:%2$d</string>
+    <string name="workshop_about">&lt;b>के बारे में:&lt;/b> %1$s</string>
+    <string name="workshop_details">&lt;b>विवरण:&lt;/b> %1$s</string>
+</resources>

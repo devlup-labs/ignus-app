@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeFragment"
+            android:icon="@drawable/nav_home"
+            android:title="@string/nav_home" />
+        <item
+            android:id="@+id/eventCategoriesFragment"
+            android:icon="@drawable/nav_event_details"
+            android:title="@string/nav_event_details" />
+
+        <item
+            android:id="@+id/workshopsFragment"
+            android:icon="@drawable/nav_event_details"
+            android:title="@string/nav_workshops" />
+
+        <item
+            android:id="@+id/prakritiEventsFragment"
+            android:icon="@drawable/ic_prakriti"
+            android:title="@string/bottom_nav_prakriti" />
+
+        <item
+            android:id="@+id/contactsFragment"
+            android:icon="@drawable/nav_contacts"
+            android:title="@string/nav_contacts" />
+
+        <item
+            android:id="@+id/sponsorsFragment"
+            android:icon="@drawable/nav_sponsors"
+            android:title="@string/nav_sponsors" />
+
+        <item
+            android:id="@+id/aboutIgnusFragment"
+            android:icon="@drawable/nav_about_ignus"
+            android:title="@string/nav_about_ignus" />
+
+        <item
+            android:id="@+id/developersFragment"
+            android:icon="@drawable/nav_developers"
+            android:title="@string/nav_developers" />
+
+        <item
+            android:id="@+id/loginFragment"
+            android:icon="@drawable/nav_login"
+            android:title="@string/nav_login" />
+    </group>
+</menu>

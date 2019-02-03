@@ -22,7 +22,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
         android:contentDescription="@string/image_content_description"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"

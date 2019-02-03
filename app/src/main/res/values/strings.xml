@@ -9,6 +9,7 @@
     <string name="nav_contacts">Contacts</string>
     <string name="nav_sponsors">Sponsors</string>
     <string name="nav_about_ignus">About Us</string>
+    <string name="nav_map">Maps</string>
     <string name="nav_developers">Developers</string>
     <string name="nav_login">Login</string>
 
@@ -28,5 +29,7 @@
     <string name="workshop_time" translatable="false">%1$s - %2$s</string>
 
     <string name="event_details" translatable="false">&lt;b>Details:&lt;/b> %1$s&lt;b>About:&lt;/b> %2$s&lt;br></string>
+
+    <string name="google_maps_api_key" translatable="false">AIzaSyBq7OlNe9yU5XW7iUvegMm_36zvOOkEGIQ</string>
 
 </resources>

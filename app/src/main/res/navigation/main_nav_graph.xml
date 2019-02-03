@@ -61,4 +61,9 @@
         android:name="org.ignus.ui.PrakritiEventsFragment"
         android:label="Prakriti"
         tools:layout="@layout/fragment_prakriti_events" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="org.ignus.ui.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>

@@ -3,6 +3,8 @@ package org.ignus.db.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.android.gms.maps.model.LatLng
+import org.ignus.R
+import org.ignus.config.Map
 import java.io.Serializable
 
 @Entity
@@ -86,6 +88,7 @@ data class Venue(
     val name: String,
     val snippet: String,
     val location: LatLng,
-    val icon: Int,
+    val type: Map = Map.UNFILTERED,
+    val icon: Int = R.drawable.ic_notifications_black_24dp,
     val tint: String = "#FFFFFF"
 )

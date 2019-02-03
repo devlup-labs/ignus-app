@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.prakritiEventsFragment,
                 R.id.workshopsFragment,
                 R.id.contactsFragment,
+                R.id.mapsFragment,
                 R.id.sponsorsFragment,
                 R.id.aboutIgnusFragment
             ),

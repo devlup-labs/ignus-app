@@ -38,7 +38,7 @@
         <item
             android:id="@+id/mapsFragment"
             android:icon="@drawable/home_circle_0"
-            android:title="@string/map"/>
+            android:title="@string/nav_map"/>
 
         <item
             android:id="@+id/developersFragment"

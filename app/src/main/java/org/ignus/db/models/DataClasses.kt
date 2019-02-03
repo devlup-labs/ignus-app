@@ -2,6 +2,7 @@ package org.ignus.db.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.android.gms.maps.model.LatLng
 import java.io.Serializable
 
 @Entity
@@ -78,4 +79,13 @@ data class Sponsor(
     val name: String?,
     val sponsor_type_name: String?,
     val sponsor_type_order: Int?
+)
+
+
+data class Venue(
+    val name: String,
+    val snippet: String,
+    val location: LatLng,
+    val icon: Int,
+    val tint: String = "#FFFFFF"
 )

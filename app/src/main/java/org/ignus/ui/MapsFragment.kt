@@ -8,7 +8,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -82,7 +81,11 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(map: GoogleMap?) {
-        map ?: return
+        Log.d("suthar", "onMapReady")
+        if (map == null) {
+            Log.d("suthar", "Map is null")
+            return
+        }
         try {
             val success = map.setMapStyle(MapStyleOptions.loadRawResourceStyle(activity, R.raw.style_josn))
             if (!success) Log.e("suthar", "Style parsing failed.")
@@ -112,7 +115,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
         showMarkers(map, Map.UNFILTERED)
 
-        Handler().postDelayed({ showMarkers(map, Map.EVENTS) }, 5000)
+        // Handler().postDelayed({ showMarkers(map, Map.EVENTS) }, 5000)
     }
 
     private fun showMarkers(map: GoogleMap, filter: Map) {

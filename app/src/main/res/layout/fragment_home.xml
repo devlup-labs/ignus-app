@@ -1,47 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeSwipeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HomeFragment"
-    android:visibility="invisible">
+    tools:context=".ui.HomeFragment">
 
-    <View
-        android:id="@+id/view_0"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="24dp"
-        android:background="@drawable/home_circle_0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="H,1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/view_1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="48dp"
-        android:background="@drawable/home_circle_1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="H,1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <View
+            android:id="@+id/view_0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="60dp"
+            android:background="@drawable/home_circle_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="24dp"
-        android:gravity="center"
-        android:maxLines="1"
-        android:text="12 days left"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="@id/view_1"
-        app:layout_constraintEnd_toEndOf="@id/view_1"
-        app:layout_constraintStart_toStartOf="@id/view_1"
-        app:layout_constraintTop_toTopOf="@id/view_1" />
+        <View
+            android:id="@+id/view_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="60dp"
+            android:background="@drawable/home_circle_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="24dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="12"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@id/view_1"
+            app:layout_constraintEnd_toEndOf="@id/view_1"
+            app:layout_constraintStart_toStartOf="@id/view_1"
+            app:layout_constraintTop_toTopOf="@id/view_1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="days left..."
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@id/view_0"
+            app:layout_constraintTop_toBottomOf="@id/view_0" />
+
+        <WebView
+            android:id="@+id/homeWebView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

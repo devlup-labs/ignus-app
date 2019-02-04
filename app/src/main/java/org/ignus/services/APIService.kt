@@ -1,12 +1,9 @@
 package org.ignus.services
 
+import com.google.gson.JsonObject
 import io.reactivex.Observable
-import org.ignus.db.models.EventCategory
-import org.ignus.db.models.EventDetails
-import org.ignus.db.models.Sponsor
-import org.ignus.db.models.Workshop
-import retrofit2.http.GET
-import retrofit2.http.Path
+import org.ignus.db.models.*
+import retrofit2.http.*
 
 interface APIService {
 
@@ -21,4 +18,11 @@ interface APIService {
 
     @GET("sponsors/sponsors-list/")
     fun getSponsorsList(): Observable<List<Sponsor>>
+
+    @FormUrlEncoded
+    @POST("token-auth/")
+    fun getUserToken(@Field("username") username: String, @Field("password") password: String): Observable<JsonObject>
+
+    @GET("accounts/user-profile/current/")
+    fun getUserProfile(@Header("Authorization") token: String): Observable<UserProfile>
 }

@@ -92,3 +92,27 @@ data class Venue(
     val icon: Int = R.drawable.ic_notifications_black_24dp,
     val tint: String = "#FFFFFF"
 )
+
+@Entity
+data class UserProfile(
+    val accommodation_required: Boolean?,
+    val address: String?,
+    val college: String?,
+    val current_year: String?,
+    val gender: String?,
+    val id: Int?,
+    val id_issued: Boolean?,
+    val phone: String?,
+    val referred_by: String?,
+    val state: String?,
+    val user: User?,
+    @PrimaryKey
+    val uuid: String
+)
+
+data class User(
+    val email: String?,
+    val first_name: String?,
+    val last_name: String?,
+    val username: String?
+)

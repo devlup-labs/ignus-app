@@ -35,7 +35,7 @@ class AboutIgnusFragment : Fragment() {
         wb.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                aboutProgressBar.visibility = View.GONE
+                if (this@AboutIgnusFragment.isVisible) aboutProgressBar.visibility = View.GONE
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {

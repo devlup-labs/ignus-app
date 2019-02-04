@@ -35,7 +35,7 @@ class ContactsFragment : Fragment() {
         wb.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                contactsProgressBar.visibility = View.GONE
+                if (this@ContactsFragment.isVisible) contactsProgressBar.visibility = View.GONE
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {

@@ -35,7 +35,7 @@ class SponsorsFragment : Fragment() {
         wb.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                sponsorsProgressBar.visibility = View.GONE
+                if (this@SponsorsFragment.isVisible) sponsorsProgressBar.visibility = View.GONE
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {

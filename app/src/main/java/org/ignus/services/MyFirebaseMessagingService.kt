@@ -1,6 +1,5 @@
 package org.ignus.services
 
-import android.R
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -9,12 +8,19 @@ import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import org.ignus.R
 import org.ignus.ui.MainActivity
 
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
+
+    override fun onNewToken(p0: String?) {
+        super.onNewToken(p0)
+        FirebaseMessaging.getInstance().subscribeToTopic("all")
+    }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         super.onMessageReceived(remoteMessage)
@@ -28,7 +34,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             val channelId = "Default"
 
             val builder = NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.mipmap.sym_def_app_icon)
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle(getString(R.string.app_name))
                 .setContentTitle(remoteMessage.notification?.title)
                 .setContentText(remoteMessage.notification?.body)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(remoteMessage.notification?.body))

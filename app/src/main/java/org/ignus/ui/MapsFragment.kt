@@ -20,6 +20,11 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.gson.Gson
 import org.ignus.R
 import org.ignus.config.Map
 import org.ignus.db.models.Venue
@@ -30,48 +35,15 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
     private val iitJBound = LatLngBounds(LatLng(26.456988, 73.106086), LatLng(26.488886, 73.124908))
     private val venues: ArrayList<Venue> by lazy { ArrayList<Venue>() }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        venues.add(
-            Venue(
-                "LHB",
-                "SBI-SBI is bond",
-                LatLng(26.47294, 73.1138),
-                Map.EVENTS,
-                R.drawable.ic_mail
-            )
-        )
-        venues.add(
-            Venue(
-                "LHB-Girls and Boys Toilet",
-                "MutLo",
-                LatLng(26.47293, 73.11402)
-            )
-        )
-        venues.add(
-            Venue(
-                "B1-Hostel",
-                "So Jao",
-                LatLng(26.472712787811197, 73.11524460598935)
-            )
-        )
-        venues.add(
-            Venue(
-                "LHB",
-                "Whatever",
-                LatLng(26.47204, 73.1148)
-            )
-        )
-    }
+    private var map: GoogleMap? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_maps, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadVenues()
         initMap()
     }
 
@@ -81,11 +53,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(map: GoogleMap?) {
-        Log.d("suthar", "onMapReady")
-        if (map == null) {
-            Log.d("suthar", "Map is null")
-            return
-        }
+        this.map = map ?: return
+
         try {
             val success = map.setMapStyle(MapStyleOptions.loadRawResourceStyle(activity, R.raw.style_josn))
             if (!success) Log.e("suthar", "Style parsing failed.")
@@ -111,23 +80,34 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         // map?.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
         map.isBuildingsEnabled = true
         map.mapType = GoogleMap.MAP_TYPE_SATELLITE
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(venues[0].location, 15.5f))
 
         showMarkers(map, Map.UNFILTERED)
 
         // Handler().postDelayed({ showMarkers(map, Map.EVENTS) }, 5000)
     }
 
-    private fun showMarkers(map: GoogleMap, filter: Map) {
+    private fun showMarkers(map: GoogleMap, filter: Map = Map.UNFILTERED) {
 
         map.clear()
+        if (venues.isNotEmpty()) map.moveCamera(CameraUpdateFactory.newLatLngZoom(venues[0].location, 15.5f))
 
         for (venue in venues) {
 
             if (filter != Map.UNFILTERED && venue.type != filter) continue
 
-            val drawable = ContextCompat.getDrawable(context ?: return, venue.icon) ?: return
-            DrawableCompat.setTint(drawable, Color.parseColor(venue.tint))
+            val mIcon: Int
+            val tint: String
+
+            if (venue.type == Map.EVENTS) {
+                tint = "#FFFFFF"
+                mIcon = R.drawable.event_list_bg
+            } else {
+                tint = "#FFFFFF"
+                mIcon = R.drawable.ic_mail
+            }
+
+            val drawable = ContextCompat.getDrawable(context ?: return, mIcon) ?: return
+            DrawableCompat.setTint(drawable, Color.parseColor(tint))
             val icon = getMarkerIconFromDrawable(drawable)
 
             map.addMarker(
@@ -149,5 +129,24 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         drawable.setBounds(0, 0, 24.px, 24.px)
         drawable.draw(canvas)
         return BitmapDescriptorFactory.fromBitmap(bitmap)
+    }
+
+    private fun loadVenues() {
+
+        val ref = FirebaseDatabase.getInstance().getReference("map/venues")
+        ref.keepSynced(true)
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {}
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (snap in snapshot.children) {
+                    val gson = Gson()
+                    val json = gson.toJson(snap.value)
+                    val venue = gson.fromJson<Venue>(json, Venue::class.java)
+                    venues.add(venue)
+                }
+                showMarkers(map ?: return)
+            }
+        })
     }
 }

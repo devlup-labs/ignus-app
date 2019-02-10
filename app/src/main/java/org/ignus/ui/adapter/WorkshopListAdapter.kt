@@ -68,7 +68,8 @@ class WorkshopListAdapter(private val activity: Activity) :
                 R.string.workshop_time,
                 workshop.start_time?.formatTime,
                 workshop.end_time.formatTime
-            ) else workshop.start_time?.formatDate
+            )
+            else workshop.start_time?.formatDate
 
             if (checkNotify(workshop.unique_id)) notify.setColorFilter(ContextCompat.getColor(activity, R.color.notify))
             else notify.setColorFilter(Color.GRAY)
@@ -76,8 +77,7 @@ class WorkshopListAdapter(private val activity: Activity) :
             if (workshop.type?.equals("A", true) == true) {
                 teamDetails.text = activity.getString(R.string.workshop_day, 1)
                 locationLayout.background = activity.getDrawable(R.drawable.workshop_bg_a)
-            }
-            else if (workshop.type?.equals("B", true) == true) {
+            } else if (workshop.type?.equals("B", true) == true) {
                 teamDetails.text = activity.getString(R.string.workshop_day, 2)
                 locationLayout.background = activity.getDrawable(R.drawable.workshop_bg_b)
             }
@@ -120,11 +120,12 @@ class WorkshopListAdapter(private val activity: Activity) :
             details.movementMethod = ScrollingMovementMethod()
 
             title.text = workshop.name
-            date.text = activity.getString(
+            date.text = if (!workshop.end_time.isNullOrBlank()) activity.getString(
                 R.string.workshop_time,
                 workshop.start_time?.formatDate,
-                (workshop.end_time ?: "2019-02-22T10:00:00+05:30").formatTime
-            )
+                workshop.end_time.formatDate
+            ) else workshop.start_time?.formatDate
+
             details.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                 Html.fromHtml(workshop.about, Html.FROM_HTML_MODE_LEGACY)?.trim()
             else Html.fromHtml(workshop.about)?.trim()

@@ -24,6 +24,10 @@ class LoginVM : ViewModel() {
         userProfileRepository.getUserProfile().subscribe(disposableObserver)
     }
 
+    fun getLoading() = userProfileRepository.loading
+
+    fun getSuccess() = userProfileRepository.success
+
     private fun initObserver() {
         disposableObserver =
             object : DisposableObserver<UserProfile>() {

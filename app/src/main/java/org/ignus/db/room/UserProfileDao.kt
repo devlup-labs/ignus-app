@@ -15,4 +15,7 @@ abstract class UserProfileDao {
 
     @Query("SELECT * FROM UserProfile")
     abstract fun get(): Observable<UserProfile>
+
+    @Query("DELETE FROM UserProfile")
+    abstract fun delete()
 }

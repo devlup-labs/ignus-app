@@ -3,6 +3,7 @@ package org.ignus.db.repositories
 import android.preference.PreferenceManager
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -16,15 +17,19 @@ import java.util.concurrent.TimeUnit
 
 class UserProfileRepository {
 
+    val loading = MutableLiveData<Boolean>()
+    val success = MutableLiveData<Boolean>()
     private val userProfileDao by lazy { db.userProfileDao() }
     private val sp by lazy { PreferenceManager.getDefaultSharedPreferences(App.instance) }
 
     fun getUserProfile(username: String, password: String): Observable<UserProfile> {
+        loading.postValue(true)
         refreshJWTToken(username, password)
         return userProfileDao.get()
     }
 
     fun getUserProfile(): Observable<UserProfile> {
+        loading.postValue(true)
         val token: String = sp.getString("jwt-token", "") ?: ""
         refreshUserProfile(token)
         return userProfileDao.get()
@@ -41,8 +46,10 @@ class UserProfileRepository {
                 sp.edit().putString("jwt-token", it.get("token").asString).apply()
                 refreshUserProfile(it.get("token").asString)
             }, {
+                loading.postValue(false)
+                userProfileDao.delete()
                 Log.d("suthar-repo", "Error JWT :  $it")
-                Toast.makeText(App.instance, "Username/Password do now match!", Toast.LENGTH_LONG).show()
+                Toast.makeText(App.instance, "Username/Password do not match!", Toast.LENGTH_LONG).show()
             })
     }
 
@@ -54,9 +61,13 @@ class UserProfileRepository {
             .observeOn(AndroidSchedulers.mainThread())
             .debounce(400, TimeUnit.MILLISECONDS)
             .subscribe({
+                success.postValue(true)
+                loading.postValue(false)
                 Log.d("suthar", "User Profile $it")
                 userProfileDao.save(it)
             }, {
+                loading.postValue(false)
+                userProfileDao.delete()
                 Log.d("suthar-repo", "Error User Profile :  $it")
                 Toast.makeText(App.instance, "Unauthenticated User!", Toast.LENGTH_LONG).show()
             })

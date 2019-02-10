@@ -13,6 +13,8 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.ignus.R
 import org.ignus.db.viewmodels.LoginVM
@@ -73,6 +75,15 @@ class LoginFragment : Fragment() {
         passwordEditText.addTextChangedListener {
             loginButton.isEnabled = !(it.isNullOrBlank() || igNumberEditText.text.isNullOrBlank())
         }
+
+        Glide.with(topImage)
+            .load("https://drive.google.com/uc?export=download&id=11pfTm0kR5prmJn9CAG0ctthQ3sEL-gLf")
+            .apply(
+                RequestOptions()
+                    .error(R.drawable.placeholder)
+                    .placeholder(R.drawable.placeholder)
+            )
+            .into(topImage)
     }
 
     private fun refreshUserProfile(username: String, password: String) {

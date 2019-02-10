@@ -16,9 +16,6 @@ interface APIService {
     @GET("workshops/workshop-list/")
     fun getWorkshopList(): Observable<List<Workshop>>
 
-    @GET("sponsors/sponsors-list/")
-    fun getSponsorsList(): Observable<List<Sponsor>>
-
     @FormUrlEncoded
     @POST("token-auth/")
     fun getUserToken(@Field("username") username: String, @Field("password") password: String): Observable<JsonObject>

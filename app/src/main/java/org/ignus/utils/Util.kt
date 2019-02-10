@@ -10,7 +10,6 @@ import org.ignus.db.models.Location
 import java.text.SimpleDateFormat
 import java.util.*
 
-val Int.dp: Int get() = (this / Resources.getSystem().displayMetrics.density).toInt()
 val Int.px: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
 
 val String.formatDate: String

@@ -33,7 +33,6 @@ import org.ignus.utils.px
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
 
-    private val iitJBound = LatLngBounds(LatLng(26.456988, 73.106086), LatLng(26.488886, 73.124908))
     private val venues: ArrayList<Venue> by lazy { ArrayList<Venue>() }
     private var map: GoogleMap? = null
 

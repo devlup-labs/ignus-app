@@ -90,10 +90,6 @@ class LoginFragment : Fragment() {
         viewModel.refreshUserProfile(username, password)
     }
 
-    private fun refreshUserProfile() {
-        viewModel.refreshUserProfile()
-    }
-
     private fun consumeProfile() {
         viewModel.userProfile.observe(this, Observer {
             Log.d("suthar", "User Profile: $it")

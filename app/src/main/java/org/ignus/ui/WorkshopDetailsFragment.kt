@@ -11,9 +11,6 @@ import org.ignus.R
 class WorkshopDetailsFragment : BottomSheetDialogFragment() {
 
     companion object {
-        fun newInstance(): WorkshopDetailsFragment {
-            return WorkshopDetailsFragment()
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

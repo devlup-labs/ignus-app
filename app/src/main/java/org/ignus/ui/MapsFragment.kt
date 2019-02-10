@@ -19,7 +19,10 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -97,12 +100,53 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
             val mIcon: Int
             val tint: String
 
-            if (venue.type == Map.EVENTS) {
-                tint = "#FFFFFF"
-                mIcon = R.drawable.event_list_bg
-            } else {
-                tint = "#FFFFFF"
-                mIcon = R.drawable.ic_mail
+            val type = try {
+                venue.type
+            } catch (e: Exception) {
+                Map.UNFILTERED
+            }
+
+            when (type) {
+                Map.ACCOMMODATION -> {
+                    mIcon = R.drawable.map_accomodation
+                    tint = "#607D8B"
+                }
+                Map.ATM -> {
+                    mIcon = R.drawable.map_atm
+                    tint = "#9E9E9E"
+                }
+                Map.BUS -> {
+                    mIcon = R.drawable.map_bus
+                    tint = "#E91E63"
+                }
+                Map.EATERIES -> {
+                    mIcon = R.drawable.map_eat
+                    tint = "#FF5722"
+                }
+                Map.ENTRY -> {
+                    mIcon = R.drawable.map_placeholder
+                    tint = "#607D8B"
+                }
+                Map.EVENTS -> {
+                    mIcon = R.drawable.map_events
+                    tint = "#2196F3"
+                }
+                Map.HOSTELS -> {
+                    mIcon = R.drawable.map_hostel
+                    tint = "#009688"
+                }
+                Map.HOSPITAL -> {
+                    mIcon = R.drawable.map_hospital
+                    tint = "#D80027"
+                }
+                Map.WASHROOM -> {
+                    tint = "#795548"
+                    mIcon = R.drawable.map_washroom
+                }
+                else -> {
+                    tint = "#000000"
+                    mIcon = R.drawable.map_placeholder
+                }
             }
 
             val drawable = ContextCompat.getDrawable(context ?: return, mIcon) ?: return

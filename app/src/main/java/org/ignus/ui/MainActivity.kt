@@ -3,6 +3,7 @@ package org.ignus.ui
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.contactsFragment,
                 R.id.mapsFragment,
                 R.id.sponsorsFragment,
-                R.id.aboutIgnusFragment
+                R.id.confessionFragment
             ),
             drawerLayout
         )
@@ -119,4 +120,8 @@ class MainActivity : AppCompatActivity() {
         else super.onBackPressed()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_options_menu, menu)
+        return true
+    }
 }

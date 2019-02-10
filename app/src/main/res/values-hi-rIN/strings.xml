@@ -18,4 +18,5 @@
     <string name="workshop_about">&lt;b>के बारे में:&lt;/b> %1$s</string>
     <string name="workshop_details">&lt;b>विवरण:&lt;/b> %1$s</string>
     <string name="nav_map">नक्शा</string>
+    <string name="nav_confession">इकबालिया बयान</string>
 </resources>

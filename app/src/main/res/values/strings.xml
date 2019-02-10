@@ -13,8 +13,8 @@
     <string name="nav_developers">Developers</string>
     <string name="nav_login">Login</string>
 
-    <string name="nav_header_name">Abhinav Suthar</string>
-    <string name="nav_header_email" translatable="false">abhinav.suthar.50@gmail.com</string>
+    <string name="nav_header_name" translatable="false">IGNUS 2019</string>
+    <string name="nav_header_email" translatable="false">ignus@ignus.org</string>
     <string name="image_content_description">Image Content Description</string>
 
     <string name="bottom_nav_cultural">Cultural</string>
@@ -22,6 +22,7 @@
     <string name="bottom_nav_flagship">Flagship</string>
     <string name="bottom_nav_prakriti" translatable="false">Prakriti</string>
 
+    <string name="full_name" translatable="false">%1$s %2$s</string>
     <string name="team_size">Team size - Min:%1$d Max:%2$d</string>
 
     <string name="workshop_about">&lt;b>About:&lt;/b> %1$s</string>

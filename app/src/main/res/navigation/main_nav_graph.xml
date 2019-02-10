@@ -69,11 +69,11 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="org.ignus.ui.LoginFragment"
-        android:label="fragment_login"
+        android:label="Login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/developersFragment"
         android:name="org.ignus.ui.DevelopersFragment"
-        android:label="fragment_developers"
+        android:label="Developers"
         tools:layout="@layout/fragment_developers" />
 </navigation>

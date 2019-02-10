@@ -7,6 +7,8 @@ import android.view.MenuItem
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,9 +22,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main_content.*
 import kotlinx.android.synthetic.main.nav_header.view.*
 import org.ignus.R
+import org.ignus.db.viewmodels.LoginVM
+import org.ignus.utils.boyIcons
+import org.ignus.utils.girlIcons
+import org.ignus.utils.random
 
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel by lazy { ViewModelProviders.of(this).get(LoginVM::class.java) }
 
     private val appBarConfiguration by lazy {
         AppBarConfiguration(
@@ -62,18 +70,33 @@ class MainActivity : AppCompatActivity() {
         val avatar = navHeader.nav_header_profile_img
         val bgImg: ImageView = navHeader.nav_header_bg_img
 
-        Glide.with(avatar)
-            .load(R.drawable.placeholder)
-            .apply(
-                RequestOptions
-                    .circleCropTransform()
-                    .error(R.drawable.placeholder)
-                    .placeholder(ColorDrawable(Color.BLACK))
-            )
-            .into(avatar)
+        val title = navHeader.nav_header_name
+        val subTitle = navHeader.nav_header_email
+
+
+        viewModel.refreshUserProfile()
+        viewModel.userProfile.observe(this, Observer {
+
+            val avatarIcon = if (it.gender?.toLowerCase() == "f") girlIcons.random()
+            else boyIcons.random()
+
+            Glide.with(avatar)
+                .load(avatarIcon)
+                .apply(
+                    RequestOptions
+                        .circleCropTransform()
+                        .placeholder(ColorDrawable(Color.BLACK))
+                )
+                .into(avatar)
+
+
+            title.text = getString(R.string.full_name, it.user?.first_name, it.user?.first_name)
+            subTitle.text = it.user?.email
+
+        })
 
         Glide.with(bgImg)
-            .load("")
+            .load("https://drive.google.com/uc?export=download&id=11pfTm0kR5prmJn9CAG0ctthQ3sEL-gLf")
             .apply(
                 RequestOptions()
                     .error(R.drawable.placeholder)

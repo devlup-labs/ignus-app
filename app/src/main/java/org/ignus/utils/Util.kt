@@ -5,6 +5,7 @@ import android.content.res.Resources
 import android.net.Uri
 import android.widget.Toast
 import org.ignus.App
+import org.ignus.R
 import org.ignus.db.models.Location
 import java.text.SimpleDateFormat
 import java.util.*
@@ -44,3 +45,16 @@ fun openGoogleMaps(location: Location?) {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
     App.instance.startActivity(intent)
 }
+
+val girlIcons = listOf(R.drawable.girl, R.drawable.girl1)
+val boyIcons = listOf(
+    R.drawable.boy,
+    R.drawable.boy1,
+    R.drawable.man,
+    R.drawable.man1,
+    R.drawable.man2,
+    R.drawable.man3,
+    R.drawable.man4
+)
+
+fun <E> List<E>.random(): E? = if (size > 0) get(Random().nextInt(size)) else null

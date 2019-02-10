@@ -65,11 +65,11 @@ class WorkshopListAdapter(private val activity: Activity) :
             title.text = workshop.name
             teamDetails.text = workshop.slug
             location.text = workshop.location?.name ?: "LHC-000"
-            time.text = activity.getString(
+            time.text = if (!workshop.end_time.isNullOrBlank()) activity.getString(
                 R.string.workshop_time,
                 workshop.start_time?.formatTime,
-                (workshop.end_time ?: "2019-02-22T10:00:00+05:30").formatTime
-            )
+                workshop.end_time.formatTime
+            ) else workshop.start_time?.formatDate
 
             if (checkNotify(workshop.unique_id)) notify.setColorFilter(ContextCompat.getColor(activity, R.color.notify))
             else notify.setColorFilter(Color.GRAY)

@@ -76,4 +76,9 @@
         android:name="org.ignus.ui.DevelopersFragment"
         android:label="Developers"
         tools:layout="@layout/fragment_developers" />
+    <fragment
+        android:id="@+id/confessionFragment"
+        android:name="org.ignus.ui.ConfessionFragment"
+        android:label="Confession"
+        tools:layout="@layout/fragment_confession" />
 </navigation>

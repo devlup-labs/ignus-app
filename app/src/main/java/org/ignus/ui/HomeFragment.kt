@@ -11,6 +11,8 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.ignus.R
+import java.sql.Date
+import java.util.concurrent.TimeUnit
 
 
 class HomeFragment : Fragment() {
@@ -23,6 +25,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpWebView()
         setUpSwipeLayout()
+        setDaysLeft()
+    }
+
+    private fun setDaysLeft() {
+        val date = Date(1550687400000)
+        val diff = date.time - System.currentTimeMillis()
+        daysLeft.text = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS).toString()
     }
 
     private fun setUpWebView() {
@@ -36,7 +45,7 @@ class HomeFragment : Fragment() {
         wb.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                if (this@HomeFragment.isVisible){
+                if (this@HomeFragment.isVisible) {
                     wb.visibility = View.VISIBLE
                     homeSwipeLayout.isRefreshing = false
                 }

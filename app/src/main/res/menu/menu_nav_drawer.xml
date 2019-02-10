@@ -12,7 +12,7 @@
 
         <item
             android:id="@+id/workshopsFragment"
-            android:icon="@drawable/nav_event_details"
+            android:icon="@drawable/nav_workshops"
             android:title="@string/nav_workshops" />
 
         <item
@@ -31,23 +31,14 @@
             android:title="@string/nav_sponsors" />
 
         <item
-            android:id="@+id/aboutIgnusFragment"
-            android:icon="@drawable/nav_about_ignus"
-            android:title="@string/nav_about_ignus" />
-
-        <item
             android:id="@+id/mapsFragment"
-            android:icon="@drawable/home_circle_0"
-            android:title="@string/nav_map"/>
+            android:icon="@drawable/nav_map"
+            android:title="@string/nav_map" />
 
         <item
-            android:id="@+id/developersFragment"
-            android:icon="@drawable/nav_developers"
-            android:title="@string/nav_developers" />
+            android:id="@+id/confessionFragment"
+            android:icon="@drawable/nav_confession"
+            android:title="@string/nav_confession" />
 
-        <item
-            android:id="@+id/loginFragment"
-            android:icon="@drawable/nav_login"
-            android:title="@string/nav_login" />
     </group>
 </menu>

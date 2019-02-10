@@ -42,7 +42,7 @@ class UserProfileRepository {
                 refreshUserProfile(it.get("token").asString)
             }, {
                 Log.d("suthar-repo", "Error JWT :  $it")
-                Toast.makeText(App.instance, "User is not logged in!", Toast.LENGTH_LONG).show()
+                Toast.makeText(App.instance, "Unauthenticated User!", Toast.LENGTH_LONG).show()
             })
     }
 

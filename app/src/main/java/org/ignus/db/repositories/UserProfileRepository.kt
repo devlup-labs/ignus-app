@@ -1,7 +1,6 @@
 package org.ignus.db.repositories
 
 import android.preference.PreferenceManager
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.Observable
@@ -42,13 +41,10 @@ class UserProfileRepository {
             .observeOn(AndroidSchedulers.mainThread())
             .debounce(400, TimeUnit.MILLISECONDS)
             .subscribe({
-                Log.d("suthar", "JWT $it")
                 sp.edit().putString("jwt-token", it.get("token").asString).apply()
                 refreshUserProfile(it.get("token").asString)
             }, {
                 loading.postValue(false)
-                userProfileDao.delete()
-                Log.d("suthar-repo", "Error JWT :  $it")
                 Toast.makeText(App.instance, "Username/Password do not match!", Toast.LENGTH_LONG).show()
             })
     }
@@ -63,12 +59,9 @@ class UserProfileRepository {
             .subscribe({
                 success.postValue(true)
                 loading.postValue(false)
-                Log.d("suthar", "User Profile $it")
                 userProfileDao.save(it)
             }, {
                 loading.postValue(false)
-                userProfileDao.delete()
-                Log.d("suthar-repo", "Error User Profile :  $it")
                 Toast.makeText(App.instance, "Unauthenticated User!", Toast.LENGTH_LONG).show()
             })
     }

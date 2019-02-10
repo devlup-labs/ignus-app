@@ -63,7 +63,6 @@ class WorkshopListAdapter(private val activity: Activity) :
 
         fun bindData(workshop: Workshop) {
             title.text = workshop.name
-            teamDetails.text = workshop.slug
             location.text = workshop.location?.name ?: "LHC-000"
             time.text = if (!workshop.end_time.isNullOrBlank()) activity.getString(
                 R.string.workshop_time,
@@ -74,10 +73,14 @@ class WorkshopListAdapter(private val activity: Activity) :
             if (checkNotify(workshop.unique_id)) notify.setColorFilter(ContextCompat.getColor(activity, R.color.notify))
             else notify.setColorFilter(Color.GRAY)
 
-            if (workshop.type?.equals("A", true) == true) locationLayout.background =
-                activity.getDrawable(R.drawable.workshop_bg_a)
-            else if (workshop.type?.equals("B", true) == true) locationLayout.background =
-                activity.getDrawable(R.drawable.workshop_bg_b)
+            if (workshop.type?.equals("A", true) == true) {
+                teamDetails.text = activity.getString(R.string.workshop_day, 1)
+                locationLayout.background = activity.getDrawable(R.drawable.workshop_bg_a)
+            }
+            else if (workshop.type?.equals("B", true) == true) {
+                teamDetails.text = activity.getString(R.string.workshop_day, 2)
+                locationLayout.background = activity.getDrawable(R.drawable.workshop_bg_b)
+            }
 
             notify.setOnClickListener { notify(workshop.unique_id) }
             parent.setOnClickListener { showDetails(workshop) }

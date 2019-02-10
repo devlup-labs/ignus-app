@@ -1,9 +1,9 @@
 package org.ignus.db.models
 
+import androidx.annotation.Keep
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.android.gms.maps.model.LatLng
-import org.ignus.R
 import org.ignus.config.Map
 import java.io.Serializable
 
@@ -83,14 +83,12 @@ data class Sponsor(
     val sponsor_type_order: Int?
 )
 
-
+@Keep
 data class Venue(
     val name: String,
     val snippet: String,
     val location: LatLng,
-    val type: Map = Map.UNFILTERED,
-    val icon: Int = R.drawable.ic_notifications_black_24dp,
-    val tint: String = "#FFFFFF"
+    val type: Map = Map.UNFILTERED
 )
 
 @Entity

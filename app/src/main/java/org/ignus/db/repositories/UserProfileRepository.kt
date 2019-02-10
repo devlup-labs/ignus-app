@@ -42,7 +42,7 @@ class UserProfileRepository {
                 refreshUserProfile(it.get("token").asString)
             }, {
                 Log.d("suthar-repo", "Error JWT :  $it")
-                Toast.makeText(App.instance, "Unauthenticated User!", Toast.LENGTH_LONG).show()
+                Toast.makeText(App.instance, "Username/Password do now match!", Toast.LENGTH_LONG).show()
             })
     }
 
@@ -58,7 +58,7 @@ class UserProfileRepository {
                 userProfileDao.save(it)
             }, {
                 Log.d("suthar-repo", "Error User Profile :  $it")
-                Toast.makeText(App.instance, "No internet connectivity!", Toast.LENGTH_LONG).show()
+                Toast.makeText(App.instance, "Unauthenticated User!", Toast.LENGTH_LONG).show()
             })
     }
 }

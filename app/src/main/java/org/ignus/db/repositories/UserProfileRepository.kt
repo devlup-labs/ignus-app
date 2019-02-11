@@ -1,6 +1,7 @@
 package org.ignus.db.repositories
 
 import android.preference.PreferenceManager
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.Observable
@@ -61,8 +62,20 @@ class UserProfileRepository {
                 loading.postValue(false)
                 userProfileDao.save(it)
             }, {
+                when {
+                    it.message?.contains("401") == true -> showToast("Unauthorized User")
+                    it.message?.contains("403") == true -> {
+                        sp.edit().remove("jwt-token").apply()
+                        showToast("Token expired please login again")
+                    }
+                    else -> showToast("Something wrong happened!")
+                }
+                Log.d("suthar", "Error, ${it.message}")
                 loading.postValue(false)
-                Toast.makeText(App.instance, "Unauthenticated User!", Toast.LENGTH_LONG).show()
             })
+    }
+
+    private fun showToast(string: String) {
+        Toast.makeText(App.instance, string, Toast.LENGTH_SHORT).show()
     }
 }

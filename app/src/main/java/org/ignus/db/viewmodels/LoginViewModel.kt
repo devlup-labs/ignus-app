@@ -35,7 +35,6 @@ class LoginViewModel : ViewModel() {
                 override fun onComplete() {}
 
                 override fun onNext(t: UserProfile) {
-                    Log.d("suthar", "onNext $t")
                     userProfile.postValue(t)
                 }
 

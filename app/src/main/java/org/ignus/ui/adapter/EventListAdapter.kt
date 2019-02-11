@@ -64,9 +64,9 @@ class EventListAdapter(
         if (showHeader)
             when (holder.itemViewType) {
                 0 -> (holder as MyViewHolder0).bindData(eventCategory.about)
-                1 -> (holder as MyViewHolder1).bindData(eventCategory.events?.get(position - 1))
+                1 -> (holder as MyViewHolder1).bindData(eventCategory.events?.get(position - 1), position)
             }
-        else (holder as MyViewHolder1).bindData(eventCategory.events?.get(position))
+        else (holder as MyViewHolder1).bindData(eventCategory.events?.get(position), position)
     }
 
 
@@ -79,7 +79,7 @@ class EventListAdapter(
         private val location: TextView = view.findViewById(R.id.location)
         private val time: TextView = view.findViewById(R.id.time)
 
-        fun bindData(event: Event?) {
+        fun bindData(event: Event?, position: Int) {
             event ?: return
             title.text = event.name
             teamDetails.text = activity.getString(R.string.team_size, event.min_team_size, event.max_team_size)
@@ -90,7 +90,7 @@ class EventListAdapter(
             else notify.setColorFilter(Color.GRAY)
 
             notify.setOnClickListener { notify(event.unique_id) }
-            parent.setOnClickListener { showDetails(event) }
+            parent.setOnClickListener { showDetails(event, position) }
             locationLayout.setOnClickListener { openGoogleMaps(event.location) }
 
         }
@@ -112,7 +112,7 @@ class EventListAdapter(
         }
 
         @SuppressLint("InflateParams")
-        private fun showDetails(event: Event) {
+        private fun showDetails(event: Event, position: Int) {
 
             val builder = AlertDialog.Builder(activity)
             val view = LayoutInflater.from(activity).inflate(R.layout.workshop_details_card, null)
@@ -154,7 +154,7 @@ class EventListAdapter(
                 } else
                     neutralBtn.visibility = View.GONE
 
-                externalLink.setOnClickListener { _ -> openURL(it.url) }
+                externalLink.setOnClickListener { _ -> openURL("${it.url}/${position + 1}") }
 
             })
 

@@ -6,6 +6,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.ignus.App
 import org.ignus.db.models.Event
+import org.ignus.db.models.TeamEvents
 import org.ignus.db.models.Workshop
 import org.ignus.services.APIClient
 import org.ignus.services.APIService
@@ -25,7 +26,7 @@ class RegisteredEventsRepository {
             .debounce(400, TimeUnit.MILLISECONDS)
     }
 
-    fun getTeamRegisteredEvents(): Observable<List<Event>>? {
+    fun getTeamRegisteredEvents(): Observable<List<TeamEvents>>? {
 
         return APIClient.getClient().create(APIService::class.java)
             .getTeamRegisteredEvents("JWT $token")

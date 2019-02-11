@@ -30,8 +30,8 @@ class TeamFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.teamEvents.observe(this, Observer {
-            val category = EventCategory(0, "Registered Team Events", "Registered Team Events", "", it, "")
-            setUpRecyclerView(category)
+            //val category = EventCategory(0, "Registered Team Events", "Registered Team Events", "", it, "")
+            //setUpRecyclerView(category)
         })
     }
 

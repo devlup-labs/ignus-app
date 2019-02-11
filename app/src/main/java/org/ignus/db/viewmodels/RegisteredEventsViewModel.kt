@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.Disposable
 import org.ignus.App
 import org.ignus.db.models.Event
+import org.ignus.db.models.EventCategory
+import org.ignus.db.models.TeamEvents
 import org.ignus.db.models.Workshop
 import org.ignus.db.repositories.RegisteredEventsRepository
 
@@ -15,7 +17,7 @@ class RegisteredEventsViewModel : ViewModel() {
     private val repository by lazy { RegisteredEventsRepository() }
 
     val soloEvents = MutableLiveData<List<Event>>()
-    val teamEvents = MutableLiveData<List<Event>>()
+    val teamEvents = MutableLiveData<List<TeamEvents>>()
     val workshops = MutableLiveData<List<Workshop>>()
     val loading = MutableLiveData<Boolean>()
 

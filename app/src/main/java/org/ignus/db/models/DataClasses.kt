@@ -115,3 +115,18 @@ data class User(
 
 fun UserProfile.qrUrl(size: String) =
     "https://chart.apis.google.com/chart?chs=${size}x$size&cht=qr&chl=${this.uuid}&choe=UTF-8"
+
+data class TeamEvents(
+    val event: Event,
+    val id: Int,
+    val leader: Leader,
+    val members: List<Member>
+)
+
+data class Member(
+    val user: User
+)
+
+data class Leader(
+    val user: User
+)

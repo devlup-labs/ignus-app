@@ -27,7 +27,7 @@ interface APIService {
     fun getSoloRegisteredEvents(@Header("Authorization") token: String): Observable<List<Event>>
 
     @GET("accounts/user-profile/current/team-event-registrations/")
-    fun getTeamRegisteredEvents(@Header("Authorization") token: String): Observable<List<Event>>
+    fun getTeamRegisteredEvents(@Header("Authorization") token: String): Observable<List<TeamEvents>>
 
     @GET("accounts/user-profile/current/workshop-registrations/")
     fun getRegisteredWorkshops(@Header("Authorization") token: String): Observable<List<Workshop>>

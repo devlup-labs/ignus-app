@@ -39,7 +39,7 @@ fun openGoogleMaps(location: Location?) {
         Toast.makeText(App.instance, "Location not available!", Toast.LENGTH_SHORT).show()
         return
     }
-    val pos = location.longitude + "," + location.latitude
+    val pos = location.latitude + "," + location.longitude
     val uri = "https://www.google.com/maps/dir/?api=1&destination=$pos&travelmode=walking"
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
     App.instance.startActivity(intent)

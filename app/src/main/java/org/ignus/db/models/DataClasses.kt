@@ -130,3 +130,10 @@ data class Member(
 data class Leader(
     val user: User
 )
+
+data class Developer(
+    val name: String?,
+    val github: String?,
+    val email: String?,
+    val designation: String?
+)

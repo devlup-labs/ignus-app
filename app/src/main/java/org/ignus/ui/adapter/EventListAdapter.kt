@@ -154,9 +154,7 @@ class EventListAdapter(
                 } else
                     neutralBtn.visibility = View.GONE
 
-                externalLink.setOnClickListener { _ ->
-                    openURL("https://ignus.org${it.url}")
-                }
+                externalLink.setOnClickListener { _ -> openURL(it.url) }
 
             })
 

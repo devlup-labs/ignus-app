@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/soloFragment"
-        android:icon="@drawable/ic_cultural"
+        android:icon="@drawable/reg_solo"
         android:title="Solo" />
 
     <item
         android:id="@+id/teamFragment"
-        android:icon="@drawable/ic_technical"
+        android:icon="@drawable/reg_team"
         android:title="Team" />
 
     <item
         android:id="@+id/workshopFragment"
-        android:icon="@drawable/ic_flagship"
+        android:icon="@drawable/nav_workshops"
         android:title="Workshop" />
 </menu>

@@ -22,7 +22,7 @@
 
         <item
             android:id="@+id/registeredEventsFragment"
-            android:icon="@drawable/ic_prakriti"
+            android:icon="@drawable/nav_registered_events"
             android:title="@string/registered_events" />
 
         <item

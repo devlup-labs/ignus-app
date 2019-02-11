@@ -58,20 +58,17 @@ data class EventDetails(
 @Entity
 data class Workshop(
     @PrimaryKey
-    val unique_id: String,
+    val id: String,
+    val type: String?,
     val about: String?,
+    val details: String?,
     val cover: String?,
-    val custom_html_lower: String?,
-    val custom_html_upper: String?,
     val start_time: String?,
     val end_time: String?,
-    val details: String?,
     val location: Location?,
     val name: String?,
     val organiser_list: List<Organiser>?,
-    val pdf: String?,
-    val slug: String?,
-    val type: String?
+    val pdf: String?
 ) : Serializable
 
 data class Sponsor(
@@ -115,3 +112,6 @@ data class User(
     val last_name: String?,
     val username: String?
 )
+
+fun UserProfile.qrUrl(size: String) =
+    "https://chart.apis.google.com/chart?chs=${size}x$size&cht=qr&chl=${this.uuid}&choe=UTF-8"

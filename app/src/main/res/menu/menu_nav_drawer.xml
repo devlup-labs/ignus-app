@@ -21,6 +21,11 @@
             android:title="@string/bottom_nav_prakriti" />
 
         <item
+            android:id="@+id/registeredEventsFragment"
+            android:icon="@drawable/ic_prakriti"
+            android:title="@string/registered_events" />
+
+        <item
             android:id="@+id/contactsFragment"
             android:icon="@drawable/nav_contacts"
             android:title="@string/nav_contacts" />

@@ -22,4 +22,10 @@ interface APIService {
 
     @GET("accounts/user-profile/current/")
     fun getUserProfile(@Header("Authorization") token: String): Observable<UserProfile>
+
+    @GET("accounts/user-profile/current/solo-event-registrations/")
+    fun getRegisteredEvents(@Header("Authorization") token: String): Observable<UserProfile>
+
+    @GET("accounts/user-profile/current/team-event-registrations/")
+    fun getRegisteredEvents2(@Header("Authorization") token: String): Observable<UserProfile>
 }

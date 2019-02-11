@@ -81,4 +81,9 @@
         android:name="org.ignus.ui.ConfessionFragment"
         android:label="Confession"
         tools:layout="@layout/fragment_confession" />
+    <fragment
+        android:id="@+id/registeredEventsFragment"
+        android:name="org.ignus.RegisteredEventsFragment"
+        android:label="Registered Events"
+        tools:layout="@layout/fragment_registered_events" />
 </navigation>

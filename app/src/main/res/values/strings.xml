@@ -37,4 +37,8 @@
 
     <string name="confession" translatable="false">This page will be available real soon</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="registered_events">Registered Events</string>
+
 </resources>

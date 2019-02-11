@@ -28,6 +28,7 @@ import org.ignus.db.models.Workshop
 import org.ignus.utils.formatDate
 import org.ignus.utils.formatTime
 import org.ignus.utils.openGoogleMaps
+import org.ignus.utils.openURL
 
 class WorkshopListAdapter(private val activity: Activity) :
     RecyclerView.Adapter<WorkshopListAdapter.MyViewHolder>() {
@@ -116,6 +117,7 @@ class WorkshopListAdapter(private val activity: Activity) :
             val details = view.findViewById<TextView>(R.id.details)
             val positiveBtn = view.findViewById<Button>(R.id.positive_btn)
             val neutralBtn = view.findViewById<Button>(R.id.neutral_btn)
+            val externalLink = view.findViewById<ImageView>(R.id.external_link)
 
             details.movementMethod = ScrollingMovementMethod()
 
@@ -142,6 +144,9 @@ class WorkshopListAdapter(private val activity: Activity) :
                 }
             } else
                 neutralBtn.visibility = View.GONE
+
+
+            externalLink.setOnClickListener { openURL("https://ignus.org/workshops/") }
 
             dialog.apply {
                 window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))

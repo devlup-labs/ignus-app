@@ -65,8 +65,8 @@ class WorkshopsFragment : Fragment() {
         val layoutManager = GridLayoutManager(context, 1)
         workshopRecyclerView.layoutManager = layoutManager
 
-        val dividerItemDecoration = DividerItemDecoration(workshopRecyclerView.context, layoutManager.orientation)
-        workshopRecyclerView.addItemDecoration(dividerItemDecoration)
+        //val dividerItemDecoration = DividerItemDecoration(workshopRecyclerView.context, layoutManager.orientation)
+        //workshopRecyclerView.addItemDecoration(dividerItemDecoration)
     }
 
     override fun onDestroy() {

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.ignus.App
 import org.ignus.R
 import org.ignus.db.models.Developer
+import org.ignus.utils.openURL
 
 
 class DeveloperAdapter(private val list: List<Developer>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -63,13 +64,7 @@ class DeveloperAdapter(private val list: List<Developer>) : RecyclerView.Adapter
             }
             github.setOnClickListener {
                 val url = developer.github
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse(url)
-                try {
-                    App.instance.startActivity(intent)
-                } catch (e: Exception) {
-                    Toast.makeText(App.instance, "URL not properly formatted!", Toast.LENGTH_SHORT).show()
-                }
+                openURL(url ?: "")
             }
         }
     }

@@ -39,7 +39,17 @@ fun openGoogleMaps(location: Location?) {
         return
     }
     val pos = location.latitude + "," + location.longitude
-    val uri = "https://www.google.com/maps/dir/?api=1&destination=$pos&travelmode=walking"
+    val uri = "https://www.google.com/maps/dir/?api=1&map_action=map&basemap=satellite&destination=$pos&travelmode=walking"
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
     App.instance.startActivity(intent)
+}
+
+fun openURL(url: String?) {
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    intent.data = Uri.parse(url)
+    try {
+        App.instance.startActivity(intent)
+    } catch (e: Exception) {
+        Toast.makeText(App.instance, "Cannot open URL", Toast.LENGTH_SHORT).show()
+    }
 }

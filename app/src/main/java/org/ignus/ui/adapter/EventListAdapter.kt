@@ -31,6 +31,7 @@ import org.ignus.db.models.EventCategory
 import org.ignus.db.viewmodels.EventDetailsViewModel
 import org.ignus.utils.formatDate
 import org.ignus.utils.openGoogleMaps
+import org.ignus.utils.openURL
 
 class EventListAdapter(
     private val activity: Activity,
@@ -124,6 +125,7 @@ class EventListAdapter(
             val loadingProgressBar = view.findViewById<ContentLoadingProgressBar>(R.id.loading)
             val positiveBtn = view.findViewById<Button>(R.id.positive_btn)
             val neutralBtn = view.findViewById<Button>(R.id.neutral_btn)
+            val externalLink = view.findViewById<ImageView>(R.id.external_link)
 
             loadingProgressBar.visibility = View.VISIBLE
             details.movementMethod = ScrollingMovementMethod()
@@ -151,6 +153,10 @@ class EventListAdapter(
                     }
                 } else
                     neutralBtn.visibility = View.GONE
+
+                externalLink.setOnClickListener { _ ->
+                    openURL("https://ignus.org${it.url}")
+                }
 
             })
 

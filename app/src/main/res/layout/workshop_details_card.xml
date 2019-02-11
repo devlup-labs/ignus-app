@@ -30,19 +30,41 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@sample/workshop.json/data/name" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/external_link"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="19dp"
+            android:src="@drawable/ic_external_link"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:textColor="@android:color/black"
             android:textSize="10sp"
             app:layout_constraintBottom_toTopOf="@id/details"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/date_icon"
             app:layout_constraintTop_toBottomOf="@id/title"
             tools:text="@sample/workshop.json/data/date_time" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/date_icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_watch"
+            app:layout_constraintBottom_toBottomOf="@id/date"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/date" />
 
 
         <androidx.appcompat.widget.AppCompatTextView

@@ -37,8 +37,8 @@ class EventListFragment : Fragment() {
         val layoutManager = GridLayoutManager(context, 1)
         eventListRecyclerView.layoutManager = layoutManager
 
-        val dividerItemDecoration = DividerItemDecoration(eventListRecyclerView.context, layoutManager.orientation)
-        eventListRecyclerView.addItemDecoration(dividerItemDecoration)
+        // val dividerItemDecoration = DividerItemDecoration(eventListRecyclerView.context, layoutManager.orientation)
+        // eventListRecyclerView.addItemDecoration(dividerItemDecoration)
     }
 
 }

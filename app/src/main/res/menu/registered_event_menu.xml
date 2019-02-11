@@ -3,15 +3,15 @@
     <item
         android:id="@+id/soloFragment"
         android:icon="@drawable/ic_cultural"
-        android:title="SOLO" />
+        android:title="Solo" />
 
     <item
         android:id="@+id/teamFragment"
         android:icon="@drawable/ic_technical"
-        android:title="TEAM" />
+        android:title="Team" />
 
     <item
         android:id="@+id/workshopFragment"
         android:icon="@drawable/ic_flagship"
-        android:title="WORKSHOP" />
+        android:title="Workshop" />
 </menu>

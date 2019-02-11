@@ -113,13 +113,19 @@ class RegisteredTeamEventListAdapter(
                 var members = ""
 
                 for (member in teamEvent.members) {
-                    members += activity.getString(R.string.member_name, member.user.first_name, member.user.first_name)
+                    members += activity.getString(
+                        R.string.member_name,
+                        member.user.username,
+                        member.user.first_name,
+                        member.user.last_name
+                    )
                 }
 
                 val leader = activity.getString(
-                    R.string.full_name,
+                    R.string.leader_name,
+                    teamEvent.leader.user.username,
                     teamEvent.leader.user.first_name,
-                    teamEvent.leader.user.first_name
+                    teamEvent.leader.user.last_name
                 )
 
                 val detailsTxt =

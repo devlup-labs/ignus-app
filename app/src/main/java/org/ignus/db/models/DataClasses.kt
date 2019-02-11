@@ -20,7 +20,8 @@ data class EventCategory(
 
 data class Event(
     val cover_url: String?,
-    val date_time: String?,
+    val start_time: String?,
+    val end_time: String?,
     val location: Location?,
     val max_team_size: Int?,
     val min_team_size: Int?,

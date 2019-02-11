@@ -78,7 +78,7 @@ class EventListAdapter(
             title.text = event.name
             teamDetails.text = activity.getString(R.string.team_size, event.min_team_size, event.max_team_size)
             location.text = event.location?.name
-            time.text = event.date_time?.formatDate
+            time.text = event.start_time?.formatDate
 
             if (checkNotify(event.unique_id)) notify.setColorFilter(ContextCompat.getColor(activity, R.color.notify))
             else notify.setColorFilter(Color.GRAY)
@@ -124,7 +124,7 @@ class EventListAdapter(
             details.movementMethod = ScrollingMovementMethod()
 
             title.text = event.name
-            date.text = event.date_time?.formatDate
+            date.text = event.start_time?.formatDate
 
             viewModel.refreshEventCategories(event.unique_id ?: return)
             viewModel.eventDetails.observe(eventListFragment, Observer {

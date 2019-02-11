@@ -13,7 +13,7 @@ val Int.px: Int get() = (this * Resources.getSystem().displayMetrics.density).to
 
 val String.formatDate: String
     get() {
-        val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX", Locale.getDefault())
+        val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val formatter = SimpleDateFormat("'('EEE')' dd MMM hh:mm aa", Locale.getDefault())
         return try {
             formatter.format(parser.parse(this))
@@ -24,7 +24,7 @@ val String.formatDate: String
 
 val String.formatTime: String
     get() {
-        val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssX", Locale.getDefault())
+        val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
         val formatter = SimpleDateFormat("EEE dd HH:mm", Locale.getDefault())
         return try {
             formatter.format(parser.parse(this))

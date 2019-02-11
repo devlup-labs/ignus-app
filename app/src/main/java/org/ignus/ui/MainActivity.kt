@@ -21,6 +21,7 @@ import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_main.*
@@ -143,14 +144,19 @@ class MainActivity : AppCompatActivity() {
         val avatar = view.findViewById<ImageView>(R.id.image)
         val positiveBtn = view.findViewById<Button>(R.id.positive_btn)
 
-        val avatarIcon = user.qrUrl("256")
+        val avatarIcon = user.qrUrl("512")
+
+        val circularProgressDrawable = CircularProgressDrawable(this)
+        circularProgressDrawable.strokeWidth = 5f
+        circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.start()
 
         Glide.with(avatar)
             .load(avatarIcon)
             .apply(
-                RequestOptions
-                    .circleCropTransform()
-                    .placeholder(ColorDrawable(Color.BLACK))
+                RequestOptions()
+                    .error(R.drawable.placeholder)
+                    .placeholder(circularProgressDrawable)
             )
             .into(avatar)
 

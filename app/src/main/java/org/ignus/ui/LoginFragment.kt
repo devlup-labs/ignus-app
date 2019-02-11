@@ -3,6 +3,7 @@ package org.ignus.ui
 
 import android.content.Context
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_login.*
+import org.ignus.App
 import org.ignus.R
 import org.ignus.db.viewmodels.LoginViewModel
 
@@ -30,6 +32,14 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val sp by lazy { PreferenceManager.getDefaultSharedPreferences(App.instance) }
+        if (sp.getString("jwt-token", null) != null) {
+            Toast.makeText(activity, "User already logged In", Toast.LENGTH_SHORT).show()
+            this@LoginFragment.fragmentManager?.popBackStack()
+            return
+        }
 
         initViews()
         consumeProfile()

@@ -3,9 +3,13 @@ package org.ignus.ui
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.Observer
@@ -23,10 +27,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main_content.*
 import kotlinx.android.synthetic.main.nav_header.view.*
 import org.ignus.R
+import org.ignus.db.models.UserProfile
+import org.ignus.db.models.qrUrl
 import org.ignus.db.viewmodels.LoginVM
-import org.ignus.utils.boyIcons
-import org.ignus.utils.girlIcons
-import org.ignus.utils.random
 
 
 class MainActivity : AppCompatActivity() {
@@ -78,8 +81,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.refreshUserProfile()
         viewModel.userProfile.observe(this, Observer {
 
-            val avatarIcon = if (it.gender?.toLowerCase() == "f") girlIcons.random()
-            else boyIcons.random()
+            // val avatarIcon = if (it.gender?.toLowerCase() == "f") girlIcons.random()
+            // else boyIcons.random()
+            val avatarIcon = it.qrUrl("256")
 
             Glide.with(avatar)
                 .load(avatarIcon)
@@ -91,8 +95,12 @@ class MainActivity : AppCompatActivity() {
                 .into(avatar)
 
 
-            title.text = getString(R.string.full_name, it.user?.first_name, it.user?.first_name)
+            title.text = getString(R.string.full_name, it.user?.first_name, it.user?.last_name)
             subTitle.text = it.user?.email
+
+            avatar.setOnClickListener { _ ->
+                showQR(it)
+            }
 
         })
 
@@ -123,5 +131,38 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_options_menu, menu)
         return true
+    }
+
+    private fun showQR(user: UserProfile) {
+        val builder = AlertDialog.Builder(this)
+        val view = LayoutInflater.from(this).inflate(R.layout.qr_code_dialog, null)
+        builder.setView(view)
+        val dialog = builder.create()
+
+        val title = view.findViewById<TextView>(R.id.title)
+        val avatar = view.findViewById<ImageView>(R.id.image)
+        val positiveBtn = view.findViewById<Button>(R.id.positive_btn)
+
+        val avatarIcon = user.qrUrl("256")
+
+        Glide.with(avatar)
+            .load(avatarIcon)
+            .apply(
+                RequestOptions
+                    .circleCropTransform()
+                    .placeholder(ColorDrawable(Color.BLACK))
+            )
+            .into(avatar)
+
+        title.text = getString(R.string.full_name, user.user?.first_name, user.user?.last_name)
+
+        positiveBtn.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.apply {
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            show()
+        }
     }
 }

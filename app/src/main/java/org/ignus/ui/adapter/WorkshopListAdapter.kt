@@ -71,7 +71,7 @@ class WorkshopListAdapter(private val activity: Activity) :
             )
             else workshop.start_time?.formatDate
 
-            if (checkNotify(workshop.unique_id)) notify.setColorFilter(ContextCompat.getColor(activity, R.color.notify))
+            if (checkNotify(workshop.id)) notify.setColorFilter(ContextCompat.getColor(activity, R.color.notify))
             else notify.setColorFilter(Color.GRAY)
 
             if (workshop.type?.equals("A", true) == true) {
@@ -82,7 +82,7 @@ class WorkshopListAdapter(private val activity: Activity) :
                 locationLayout.background = activity.getDrawable(R.drawable.workshop_bg_b)
             }
 
-            notify.setOnClickListener { notify(workshop.unique_id) }
+            notify.setOnClickListener { notify(workshop.id) }
             parent.setOnClickListener { showDetails(workshop) }
             locationLayout.setOnClickListener { openGoogleMaps(workshop.location) }
 

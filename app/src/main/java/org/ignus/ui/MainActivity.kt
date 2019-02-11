@@ -30,12 +30,12 @@ import kotlinx.android.synthetic.main.nav_header.view.*
 import org.ignus.R
 import org.ignus.db.models.UserProfile
 import org.ignus.db.models.qrUrl
-import org.ignus.db.viewmodels.LoginVM
+import org.ignus.db.viewmodels.LoginViewModel
 
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel by lazy { ViewModelProviders.of(this).get(LoginVM::class.java) }
+    private val viewModel by lazy { ViewModelProviders.of(this).get(LoginViewModel::class.java) }
 
     private val appBarConfiguration by lazy {
         AppBarConfiguration(

@@ -19,6 +19,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ContentLoadingProgressBar
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -28,14 +29,13 @@ import org.ignus.R
 import org.ignus.db.models.Event
 import org.ignus.db.models.EventCategory
 import org.ignus.db.viewmodels.EventDetailsViewModel
-import org.ignus.ui.EventListFragment
 import org.ignus.utils.formatDate
 import org.ignus.utils.openGoogleMaps
 
 class EventListAdapter(
     private val activity: Activity,
     private val eventCategory: EventCategory,
-    private val eventListFragment: EventListFragment
+    private val eventListFragment: Fragment
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

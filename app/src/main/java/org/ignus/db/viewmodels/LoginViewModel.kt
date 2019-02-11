@@ -7,7 +7,7 @@ import io.reactivex.observers.DisposableObserver
 import org.ignus.db.models.UserProfile
 import org.ignus.db.repositories.UserProfileRepository
 
-class LoginVM : ViewModel() {
+class LoginViewModel : ViewModel() {
 
     private val userProfileRepository by lazy { UserProfileRepository() }
     var userProfile: MutableLiveData<UserProfile> = MutableLiveData()

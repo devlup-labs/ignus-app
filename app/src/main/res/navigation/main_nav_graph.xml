@@ -5,8 +5,8 @@
     app:startDestination="@id/homeFragment">
 
     <!--<include-->
-        <!--android:id="@+id/bottom_nav_graph0"-->
-        <!--app:graph="@navigation/bottom_nav_graph" />-->
+    <!--android:id="@+id/bottom_nav_graph0"-->
+    <!--app:graph="@navigation/bottom_nav_graph" />-->
 
     <fragment
         android:id="@+id/homeFragment"
@@ -26,11 +26,7 @@
         android:id="@+id/workshopsFragment"
         android:name="org.ignus.ui.WorkshopsFragment"
         android:label="Workshops"
-        tools:layout="@layout/fragment_workshops">
-        <action
-            android:id="@+id/workshopsFragment_to_workshopDetailsFragment"
-            app:destination="@id/workshopDetailsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_workshops" />
     <fragment
         android:id="@+id/contactsFragment"
         android:name="org.ignus.ui.ContactsFragment"
@@ -51,11 +47,6 @@
         android:name="org.ignus.ui.EventListFragment"
         android:label="Event List"
         tools:layout="@layout/fragment_event_list" />
-    <fragment
-        android:id="@+id/workshopDetailsFragment"
-        android:name="org.ignus.ui.WorkshopDetailsFragment"
-        android:label="WorkshopDetailsFragment"
-        tools:layout="@layout/event_categories_card_2" />
     <fragment
         android:id="@+id/prakritiEventsFragment"
         android:name="org.ignus.ui.PrakritiEventsFragment"
@@ -83,7 +74,7 @@
         tools:layout="@layout/fragment_confession" />
     <fragment
         android:id="@+id/registeredEventsFragment"
-        android:name="org.ignus.RegisteredEventsFragment"
+        android:name="org.ignus.ui.registered_events.RegisteredEventsFragment"
         android:label="Registered Events"
         tools:layout="@layout/fragment_registered_events" />
 </navigation>

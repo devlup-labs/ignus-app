@@ -158,7 +158,7 @@ class WorkshopListAdapter(private val activity: Activity) :
             val title: TextView = view.findViewById(R.id.title)
             val recyclerView: RecyclerView = view.findViewById(R.id.organisersListRecyclerView)
 
-            title.text = workshop.name
+            title.text = activity.getString(R.string.organisers)
             recyclerView.adapter = OrganiserListAdapter(workshop.organiser_list ?: return)
             recyclerView.layoutManager = LinearLayoutManager(activity)
             recyclerView.addItemDecoration(DividerItemDecoration(activity, LinearLayout.VERTICAL))

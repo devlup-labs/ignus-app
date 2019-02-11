@@ -17,12 +17,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.ignus.R
-import org.ignus.db.viewmodels.LoginVM
+import org.ignus.db.viewmodels.LoginViewModel
 
 
 class LoginFragment : Fragment() {
 
-    private val viewModel by lazy { ViewModelProviders.of(this).get(LoginVM::class.java) }
+    private val viewModel by lazy { ViewModelProviders.of(this).get(LoginViewModel::class.java) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_login, container, false)

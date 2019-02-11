@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registered_event_graph"
+    app:startDestination="@id/soloFragment">
+
+    <fragment
+        android:id="@+id/soloFragment"
+        android:name="org.ignus.ui.registered_events.SoloFragment"
+        android:label="fragment_solo"
+        tools:layout="@layout/fragment_registered_solo" />
+    <fragment
+        android:id="@+id/teamFragment"
+        android:name="org.ignus.ui.registered_events.TeamFragment"
+        android:label="fragment_team"
+        tools:layout="@layout/fragment_registered_team" />
+    <fragment
+        android:id="@+id/workshopFragment"
+        android:name="org.ignus.ui.registered_events.WorkshopFragment"
+        android:label="fragment_registered_workshop"
+        tools:layout="@layout/fragment_registered_workshop" />
+</navigation>

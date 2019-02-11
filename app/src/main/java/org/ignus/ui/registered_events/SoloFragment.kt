@@ -37,7 +37,7 @@ class SoloFragment : Fragment() {
 
     private fun setUpRecyclerView(category: EventCategory) {
         val recyclerView = registeredEventsSoloRecyclerView
-        val adapter = EventListAdapter(requireActivity(), category, this)
+        val adapter = EventListAdapter(requireActivity(), category, this, false)
         recyclerView.adapter = adapter
 
         val layoutManager = GridLayoutManager(context, 1)

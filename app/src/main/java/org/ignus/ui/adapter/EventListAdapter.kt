@@ -35,7 +35,8 @@ import org.ignus.utils.openGoogleMaps
 class EventListAdapter(
     private val activity: Activity,
     private val eventCategory: EventCategory,
-    private val eventListFragment: Fragment
+    private val eventListFragment: Fragment,
+    private val showHeader: Boolean = true
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -46,21 +47,25 @@ class EventListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == 0)
+        return if (viewType == 0 && showHeader)
             MyViewHolder0(LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_0, parent, false))
         else MyViewHolder1(LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_1, parent, false))
 
     }
 
-    override fun getItemCount() = (eventCategory.events?.size ?: 0) + 1
+    override fun getItemCount() =
+        if (showHeader) (eventCategory.events?.size ?: 0) + 1
+        else eventCategory.events?.size ?: 0
 
     override fun getItemViewType(position: Int) = if (position == 0) 0 else 1
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder.itemViewType) {
-            0 -> (holder as MyViewHolder0).bindData(eventCategory.about)
-            1 -> (holder as MyViewHolder1).bindData(eventCategory.events?.get(position - 1))
-        }
+        if (showHeader)
+            when (holder.itemViewType) {
+                0 -> (holder as MyViewHolder0).bindData(eventCategory.about)
+                1 -> (holder as MyViewHolder1).bindData(eventCategory.events?.get(position - 1))
+            }
+        else (holder as MyViewHolder1).bindData(eventCategory.events?.get(position))
     }
 
 

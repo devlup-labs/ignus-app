@@ -124,7 +124,11 @@ class EventListAdapter(
             details.movementMethod = ScrollingMovementMethod()
 
             title.text = event.name
-            date.text = event.start_time?.formatDate
+            date.text = if (!event.end_time.isNullOrBlank()) activity.getString(
+                R.string.workshop_time,
+                event.start_time?.formatDate,
+                event.end_time.formatDate
+            ) else event.start_time?.formatDate
 
             viewModel.refreshEventCategories(event.unique_id ?: return)
             viewModel.eventDetails.observe(eventListFragment, Observer {

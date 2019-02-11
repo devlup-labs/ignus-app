@@ -26,8 +26,6 @@
     <string name="full_name" translatable="false">%1$s %2$s</string>
     <string name="team_size">Team size - Min:%1$d Max:%2$d</string>
 
-    <string name="workshop_about">&lt;b>About:&lt;/b> %1$s</string>
-    <string name="workshop_details">&lt;b>Details:&lt;/b> %1$s</string>
     <string name="workshop_time" translatable="false">%1$s - %2$s</string>
     <string name="workshop_day" translatable="false">%1$d-day-workshop</string>
 
@@ -41,8 +39,6 @@
     <string name="member_name" translatable="false">(%1$s) %2$s %3$s, </string>
     <string name="registered_event_details" translatable="false">&lt;b>Leader:&lt;/b> %1$s&lt;br>&lt;b>Members:&lt;/b> %2$s&lt;br>&lt;br>&lt;b>About:&lt;/b> %3$s&lt;b>Details:&lt;/b> %4$s&lt;br></string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="registered_events">Registered Events</string>
     <string name="organisers">Organisers</string>
 

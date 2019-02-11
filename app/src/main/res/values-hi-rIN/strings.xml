@@ -15,8 +15,6 @@
     <string name="image_content_description">छवि सामग्री विवरण</string>
     <string name="nav_login">लॉग इन करें</string>
     <string name="team_size">समुहआकार -  न्यूनतम:%1$d ज्यादा से ज्यादा:%2$d</string>
-    <string name="workshop_about">&lt;b>के बारे में:&lt;/b> %1$s</string>
-    <string name="workshop_details">&lt;b>विवरण:&lt;/b> %1$s</string>
     <string name="nav_map">नक्शा</string>
     <string name="nav_confession">इकबालिया बयान</string>
 </resources>

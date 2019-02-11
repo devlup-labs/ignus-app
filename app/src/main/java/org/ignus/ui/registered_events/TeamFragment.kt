@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_registered_team.*
 import org.ignus.R
-import org.ignus.db.models.EventCategory
+import org.ignus.db.models.TeamEvents
 import org.ignus.db.viewmodels.RegisteredEventsViewModel
-import org.ignus.ui.adapter.EventListAdapter
+import org.ignus.ui.adapter.RegisteredTeamEventListAdapter
 
 class TeamFragment : Fragment() {
 
@@ -30,14 +30,13 @@ class TeamFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.teamEvents.observe(this, Observer {
-            //val category = EventCategory(0, "Registered Team Events", "Registered Team Events", "", it, "")
-            //setUpRecyclerView(category)
+            setUpRecyclerView(it)
         })
     }
 
-    private fun setUpRecyclerView(category: EventCategory) {
+    private fun setUpRecyclerView(events: List<TeamEvents>) {
         val recyclerView = registeredEventsTeamRecyclerView
-        val adapter = EventListAdapter(requireActivity(), category, this)
+        val adapter = RegisteredTeamEventListAdapter(requireActivity(), events, this)
         recyclerView.adapter = adapter
 
         val layoutManager = GridLayoutManager(context, 1)

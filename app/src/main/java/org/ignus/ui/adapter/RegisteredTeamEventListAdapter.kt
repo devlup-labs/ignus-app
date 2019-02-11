@@ -13,11 +13,12 @@ import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import android.widget.*
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -27,91 +28,62 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.ignus.R
 import org.ignus.db.models.Event
-import org.ignus.db.models.EventCategory
+import org.ignus.db.models.TeamEvents
 import org.ignus.db.viewmodels.EventDetailsViewModel
 import org.ignus.utils.formatDate
 import org.ignus.utils.openGoogleMaps
 
-class EventListAdapter(
+class RegisteredTeamEventListAdapter(
     private val activity: Activity,
-    private val eventCategory: EventCategory,
-    private val eventListFragment: Fragment,
-    private val showHeader: Boolean = true
+    private val events: List<TeamEvents>,
+    private val fragment: Fragment
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val sp by lazy { PreferenceManager.getDefaultSharedPreferences(activity) }
 
     private val viewModel: EventDetailsViewModel by lazy {
-        ViewModelProviders.of(eventListFragment).get(EventDetailsViewModel::class.java)
+        ViewModelProviders.of(fragment).get(EventDetailsViewModel::class.java)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == 0 && showHeader)
-            MyViewHolder0(LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_0, parent, false))
-        else MyViewHolder1(LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_1, parent, false))
+        return MyViewHolder1(LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_1, parent, false))
 
     }
 
-    override fun getItemCount() =
-        if (showHeader) (eventCategory.events?.size ?: 0) + 1
-        else eventCategory.events?.size ?: 0
+    override fun getItemCount() = events.size
 
     override fun getItemViewType(position: Int) = if (position == 0) 0 else 1
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (showHeader)
-            when (holder.itemViewType) {
-                0 -> (holder as MyViewHolder0).bindData(eventCategory.about)
-                1 -> (holder as MyViewHolder1).bindData(eventCategory.events?.get(position - 1))
-            }
-        else (holder as MyViewHolder1).bindData(eventCategory.events?.get(position))
+        (holder as MyViewHolder1).bindData(events[position])
     }
 
 
     inner class MyViewHolder1(view: View) : RecyclerView.ViewHolder(view) {
         private val parent: ConstraintLayout = view.findViewById(R.id.parentLayout)
         private val title: TextView = view.findViewById(R.id.title)
-        private val notify: ImageView = view.findViewById(R.id.notify)
         private val teamDetails: TextView = view.findViewById(R.id.team_details)
         private val locationLayout: ConstraintLayout = view.findViewById(R.id.location_layout)
         private val location: TextView = view.findViewById(R.id.location)
         private val time: TextView = view.findViewById(R.id.time)
 
-        fun bindData(event: Event?) {
-            event ?: return
+        fun bindData(teamEvent: TeamEvents) {
+            val event = teamEvent.event
             title.text = event.name
             teamDetails.text = activity.getString(R.string.team_size, event.min_team_size, event.max_team_size)
             location.text = event.location?.name
             time.text = event.start_time?.formatDate
 
-            if (checkNotify(event.unique_id)) notify.setColorFilter(ContextCompat.getColor(activity, R.color.notify))
-            else notify.setColorFilter(Color.GRAY)
-
-            notify.setOnClickListener { notify(event.unique_id) }
-            parent.setOnClickListener { showDetails(event) }
+            parent.setOnClickListener { showDetails(teamEvent) }
             locationLayout.setOnClickListener { openGoogleMaps(event.location) }
 
         }
 
-        private fun checkNotify(string: String?): Boolean {
-            return sp.getBoolean("notify-$string", false)
-        }
-
-        private fun notify(string: String?) {
-            if (checkNotify(string)) {
-                notify.setColorFilter(Color.GRAY)
-                sp.edit().putBoolean("notify-$string", false).apply()
-            } else {
-                notify.setColorFilter(ContextCompat.getColor(activity, R.color.notify))
-                val shake = AnimationUtils.loadAnimation(activity, R.anim.shakeanim)
-                notify.startAnimation(shake)
-                sp.edit().putBoolean("notify-$string", true).apply()
-            }
-        }
-
         @SuppressLint("InflateParams")
-        private fun showDetails(event: Event) {
+        private fun showDetails(teamEvent: TeamEvents) {
+
+            val event: Event = teamEvent.event
 
             val builder = AlertDialog.Builder(activity)
             val view = LayoutInflater.from(activity).inflate(R.layout.workshop_details_card, null)
@@ -136,9 +108,22 @@ class EventListAdapter(
             ) else event.start_time?.formatDate
 
             viewModel.refreshEventCategories(event.unique_id ?: return)
-            viewModel.eventDetails.observe(eventListFragment, Observer {
+            viewModel.eventDetails.observe(fragment, Observer {
 
-                val detailsTxt = activity.getString(R.string.event_details, it.about, it.details)
+                var members = ""
+
+                for (member in teamEvent.members) {
+                    members += activity.getString(R.string.member_name, member.user.first_name, member.user.first_name)
+                }
+
+                val leader = activity.getString(
+                    R.string.full_name,
+                    teamEvent.leader.user.first_name,
+                    teamEvent.leader.user.first_name
+                )
+
+                val detailsTxt =
+                    activity.getString(R.string.registered_event_details, leader, members, it.about, it.details)
 
                 details.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                     Html.fromHtml(detailsTxt, Html.FROM_HTML_MODE_LEGACY)?.trim()
@@ -154,11 +139,11 @@ class EventListAdapter(
 
             })
 
-            viewModel.eventDetailsError.observe(eventListFragment, Observer {
+            viewModel.eventDetailsError.observe(fragment, Observer {
                 Toast.makeText(activity, "Something wrong happened!", Toast.LENGTH_LONG).show()
             })
 
-            viewModel.getLoading().observe(eventListFragment, Observer {
+            viewModel.getLoading().observe(fragment, Observer {
                 if (it) loadingProgressBar.show()
                 else loadingProgressBar.hide()
             })
@@ -190,17 +175,6 @@ class EventListAdapter(
             val dialog = builder.create()
             dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialog.show()
-        }
-    }
-
-    class MyViewHolder0(view: View) : RecyclerView.ViewHolder(view) {
-
-        private val details: TextView = view.findViewById(R.id.details)
-
-        fun bindData(about: String?) {
-            details.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                Html.fromHtml(about, Html.FROM_HTML_MODE_LEGACY)?.trim()?.toString()
-            else Html.fromHtml(about)?.trim()?.toString()
         }
     }
 }

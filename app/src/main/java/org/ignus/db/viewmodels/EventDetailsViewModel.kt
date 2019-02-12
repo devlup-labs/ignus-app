@@ -23,8 +23,6 @@ class EventDetailsViewModel : ViewModel() {
 
                 override fun onNext(t: EventDetails) {
                     if (mID == t.id) eventDetails.postValue(t)
-
-                    Log.d("suthar", "$mID, ${t.id}")
                 }
 
                 override fun onError(e: Throwable) {

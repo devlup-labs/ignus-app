@@ -10,8 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -46,7 +46,7 @@ class EventCategoriesAdapter(private val activity: Activity) :
         private val cover: ImageView = view.findViewById(R.id.cover)
         private val title: TextView = view.findViewById(R.id.title)
         private val details: TextView = view.findViewById(R.id.details)
-        private val parent: CardView = view.findViewById(R.id.parentLayout)
+        private val parent: LinearLayout = view.findViewById(R.id.parentLayout)
 
         fun bindData(activity: Activity, position: Int, data: List<EventCategory>) {
             cover.clipToOutline = true

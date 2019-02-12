@@ -39,8 +39,7 @@ class LoginFragment : Fragment() {
         val sp by lazy { PreferenceManager.getDefaultSharedPreferences(App.instance) }
         if (sp.getString("jwt-token", null) != null) {
             Toast.makeText(activity, "User already logged In", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.homeFragment)
-            return
+            findNavController().popBackStack()
         }
 
         initViews()
@@ -117,7 +116,7 @@ class LoginFragment : Fragment() {
         viewModel.getSuccess().observe(this, Observer {
             if (it) {
                 Toast.makeText(activity, "Login Successful", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.homeFragment)
+                findNavController().popBackStack()
             }
         })
     }

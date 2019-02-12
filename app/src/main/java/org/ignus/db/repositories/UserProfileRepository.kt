@@ -29,10 +29,13 @@ class UserProfileRepository {
     }
 
     fun getUserProfile(): Observable<UserProfile> {
+        return userProfileDao.get()
+    }
+
+    fun refreshUserProfile() {
         loading.postValue(true)
         val token: String = sp.getString("jwt-token", "") ?: ""
         refreshUserProfile(token)
-        return userProfileDao.get()
     }
 
     private fun refreshJWTToken(username: String, password: String): Disposable? {
@@ -46,7 +49,8 @@ class UserProfileRepository {
                 refreshUserProfile(it.get("token").asString)
             }, {
                 loading.postValue(false)
-                Toast.makeText(App.instance, "Username/Password do not match!", Toast.LENGTH_LONG).show()
+                Log.d("suthar", it.toString())
+                Toast.makeText(App.instance, "Username/Password do not match!", Toast.LENGTH_SHORT).show()
             })
     }
 
@@ -77,9 +81,5 @@ class UserProfileRepository {
 
     private fun showToast(string: String) {
         Toast.makeText(App.instance, string, Toast.LENGTH_SHORT).show()
-    }
-
-    fun deleteUserProfile() {
-        userProfileDao.delete()
     }
 }

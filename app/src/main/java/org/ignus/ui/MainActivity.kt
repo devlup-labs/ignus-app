@@ -75,17 +75,15 @@ class MainActivity : AppCompatActivity() {
     private fun setUpNavHeader() {
 
         val navHeader = navigationView.getHeaderView(0)
-
         val avatar = navHeader.nav_header_profile_img
         val bgImg: ImageView = navHeader.nav_header_bg_img
-
         val title = navHeader.nav_header_name
         val subTitle = navHeader.nav_header_email
 
-
+        viewModel.getUserProfile()
         viewModel.userProfile.observe(this, Observer {
 
-            if (it != null) {
+            if (sp.getString("jwt-token", null) != null) {
                 val avatarIcon = it.qrUrl("256")
 
                 Glide.with(avatar)
@@ -97,13 +95,10 @@ class MainActivity : AppCompatActivity() {
                     )
                     .into(avatar)
 
-
                 title.text = getString(R.string.full_name, it.user?.first_name, it.user?.last_name)
                 subTitle.text = it.user?.email
 
-                avatar.setOnClickListener { _ ->
-                    showQR(it)
-                }
+                avatar.setOnClickListener { _ -> showQR(it) }
             } else {
                 Glide.with(avatar)
                     .load(R.drawable.boy1)
@@ -118,7 +113,6 @@ class MainActivity : AppCompatActivity() {
                 subTitle.text = getString(R.string.nav_header_email)
                 avatar.setOnClickListener {}
             }
-
         })
 
         Glide.with(bgImg)
@@ -138,7 +132,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.logout) {
             sp.edit().remove("jwt-token").apply()
-            viewModel.deleteUserProfile()
+            super.recreate()
             return true
         }
         return item.onNavDestinationSelected(findNavController(R.id.nav_host_fragment)) || super.onOptionsItemSelected(
@@ -154,12 +148,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
         menuInflater.inflate(R.menu.main_options_menu, menu)
-
         if (sp.getString("jwt-token", null) != null) menu?.removeItem(R.id.loginFragment)
         else menu?.removeItem(R.id.logout)
-
         return true
     }
 

@@ -1,5 +1,6 @@
 package org.ignus.db.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.observers.DisposableObserver
@@ -21,7 +22,9 @@ class EventDetailsViewModel : ViewModel() {
                 override fun onComplete() {}
 
                 override fun onNext(t: EventDetails) {
-                    eventDetails.postValue(t)
+                    if (mID == t.id) eventDetails.postValue(t)
+
+                    Log.d("suthar", "$mID, ${t.id}")
                 }
 
                 override fun onError(e: Throwable) {
@@ -29,6 +32,7 @@ class EventDetailsViewModel : ViewModel() {
                 }
             }
 
+        mID = id
         val eventDetail = EventDetails(id, "", "", "", "")
         eventDetails.postValue(eventDetail)
         eventDetailsRepository.getEventDetails(id).subscribe(disposableObserver)
@@ -40,5 +44,9 @@ class EventDetailsViewModel : ViewModel() {
 
     fun disposeElements() {
         if (!disposableObserver.isDisposed) disposableObserver.dispose()
+    }
+
+    companion object {
+        private var mID: String = ""
     }
 }

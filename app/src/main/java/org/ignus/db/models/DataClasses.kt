@@ -7,6 +7,7 @@ import com.google.android.gms.maps.model.LatLng
 import org.ignus.config.Map
 import java.io.Serializable
 
+@Keep
 @Entity
 data class EventCategory(
     @PrimaryKey(autoGenerate = true)
@@ -18,6 +19,7 @@ data class EventCategory(
     val parent_type: String?
 ) : Serializable
 
+@Keep
 data class Event(
     val cover_url: String?,
     val start_time: String?,
@@ -30,12 +32,14 @@ data class Event(
     val unique_id: String?
 ) : Serializable
 
+@Keep
 data class Location(
     val name: String?,
     val latitude: String?,
     val longitude: String?
 ) : Serializable
 
+@Keep
 data class Organiser(
     val avatar_url: String?,
     val email: String?,
@@ -44,6 +48,7 @@ data class Organiser(
 ) : Serializable
 
 
+@Keep
 @Entity
 data class EventDetails(
     @PrimaryKey
@@ -55,6 +60,7 @@ data class EventDetails(
 ) : Serializable
 
 
+@Keep
 @Entity
 data class Workshop(
     @PrimaryKey
@@ -71,6 +77,7 @@ data class Workshop(
     val pdf: String?
 ) : Serializable
 
+@Keep
 data class Sponsor(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
@@ -89,6 +96,7 @@ data class Venue(
     val type: Map = Map.UNFILTERED
 )
 
+@Keep
 @Entity
 data class UserProfile(
     val accommodation_required: Boolean?,
@@ -106,6 +114,7 @@ data class UserProfile(
     val uuid: String
 )
 
+@Keep
 data class User(
     val email: String?,
     val first_name: String?,
@@ -116,6 +125,7 @@ data class User(
 fun UserProfile.qrUrl(size: String) =
     "https://chart.apis.google.com/chart?chs=${size}x$size&cht=qr&chl=${this.uuid}&choe=UTF-8"
 
+@Keep
 data class TeamEvents(
     val event: Event,
     val id: Int,
@@ -123,14 +133,17 @@ data class TeamEvents(
     val members: List<Member>
 )
 
+@Keep
 data class Member(
     val user: User
 )
 
+@Keep
 data class Leader(
     val user: User
 )
 
+@Keep
 data class Developer(
     val name: String?,
     val github: String?,

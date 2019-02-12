@@ -14,6 +14,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -37,7 +38,7 @@ class LoginFragment : Fragment() {
         val sp by lazy { PreferenceManager.getDefaultSharedPreferences(App.instance) }
         if (sp.getString("jwt-token", null) != null) {
             Toast.makeText(activity, "User already logged In", Toast.LENGTH_SHORT).show()
-            this@LoginFragment.fragmentManager?.popBackStack()
+            findNavController().popBackStack()
             return
         }
 
@@ -115,7 +116,7 @@ class LoginFragment : Fragment() {
         viewModel.getSuccess().observe(this, Observer {
             if (it) {
                 Toast.makeText(activity, "Login Successful", Toast.LENGTH_SHORT).show()
-                this@LoginFragment.fragmentManager?.popBackStack()
+                findNavController().popBackStack()
             }
         })
     }

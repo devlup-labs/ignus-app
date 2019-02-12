@@ -64,7 +64,7 @@ class EventListAdapter(
         if (showHeader)
             when (holder.itemViewType) {
                 0 -> (holder as MyViewHolder0).bindData(eventCategory.about)
-                1 -> (holder as MyViewHolder1).bindData(eventCategory.events?.get(position - 1), position)
+                1 -> (holder as MyViewHolder1).bindData(eventCategory.events?.get(position - 1), position - 1)
             }
         else (holder as MyViewHolder1).bindData(eventCategory.events?.get(position), position)
     }
@@ -154,7 +154,8 @@ class EventListAdapter(
                 } else
                     neutralBtn.visibility = View.GONE
 
-                externalLink.setOnClickListener { _ -> openURL("${it.url}/${position + 1}") }
+                val pos: String = if (showHeader) (position + 1).toString() else ""
+                externalLink.setOnClickListener { _ -> openURL("${it.url}/${pos}") }
 
             })
 

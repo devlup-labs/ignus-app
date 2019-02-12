@@ -11,6 +11,7 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.ignus.R
+import org.ignus.config.HOME_PAGE_URL
 import java.sql.Date
 import java.util.concurrent.TimeUnit
 
@@ -23,9 +24,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setDaysLeft()
         setUpWebView()
         setUpSwipeLayout()
-        setDaysLeft()
     }
 
     private fun setDaysLeft() {
@@ -40,7 +41,7 @@ class HomeFragment : Fragment() {
         wb.settings.javaScriptEnabled = true
         wb.settings.loadWithOverviewMode = true
         wb.settings.useWideViewPort = true
-        wb.loadUrl("https://ignus-2019-cae48.firebaseapp.com/")
+        wb.loadUrl(HOME_PAGE_URL)
 
         wb.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
@@ -60,7 +61,7 @@ class HomeFragment : Fragment() {
     private fun setUpSwipeLayout() {
 
         homeSwipeLayout.setOnRefreshListener {
-            homeWebView.reload()
+            homeWebView.loadUrl(HOME_PAGE_URL)
         }
 
         homeSwipeLayout.setColorSchemeResources(
@@ -69,5 +70,9 @@ class HomeFragment : Fragment() {
             android.R.color.holo_orange_dark,
             android.R.color.holo_blue_dark
         )
+
+        homeSwipeLayout.viewTreeObserver.addOnScrollChangedListener {
+            if (homeWebView != null) homeSwipeLayout.isEnabled = homeWebView.scrollY == 0
+        }
     }
 }

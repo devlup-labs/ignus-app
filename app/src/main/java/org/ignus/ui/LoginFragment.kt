@@ -20,6 +20,7 @@ import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.fragment_login.*
 import org.ignus.App
 import org.ignus.R
+import org.ignus.config.LOGIN_PAGE_BG_IMAGE
 import org.ignus.db.viewmodels.LoginViewModel
 
 
@@ -38,7 +39,7 @@ class LoginFragment : Fragment() {
         val sp by lazy { PreferenceManager.getDefaultSharedPreferences(App.instance) }
         if (sp.getString("jwt-token", null) != null) {
             Toast.makeText(activity, "User already logged In", Toast.LENGTH_SHORT).show()
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.homeFragment)
             return
         }
 
@@ -88,7 +89,7 @@ class LoginFragment : Fragment() {
         }
 
         Glide.with(topImage)
-            .load("https://drive.google.com/uc?export=download&id=11pfTm0kR5prmJn9CAG0ctthQ3sEL-gLf")
+            .load(LOGIN_PAGE_BG_IMAGE)
             .apply(
                 RequestOptions()
                     .error(R.drawable.placeholder)
@@ -116,7 +117,7 @@ class LoginFragment : Fragment() {
         viewModel.getSuccess().observe(this, Observer {
             if (it) {
                 Toast.makeText(activity, "Login Successful", Toast.LENGTH_SHORT).show()
-                findNavController().popBackStack()
+                findNavController().navigate(R.id.homeFragment)
             }
         })
     }

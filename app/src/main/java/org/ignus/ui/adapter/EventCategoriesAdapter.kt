@@ -56,7 +56,6 @@ class EventCategoriesAdapter(private val activity: Activity) :
                 .apply(
                     RequestOptions()
                         .placeholder(ColorDrawable(Color.BLACK))
-                        .error(R.drawable.placeholder)
                 )
                 .into(cover)
 

@@ -56,6 +56,7 @@ class DeveloperAdapter(private val list: List<Developer>) : RecyclerView.Adapter
                 intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(developer.email))
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Ignus 2019")
                 intent.putExtra(Intent.EXTRA_TEXT, "Hi ${developer.name}")
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 try {
                     App.instance.startActivity(intent)
                 } catch (e: Exception) {

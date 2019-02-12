@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.fragment_registered_events.*
 import org.ignus.App
@@ -34,8 +35,7 @@ class RegisteredEventsFragment : Fragment() {
         val sp by lazy { PreferenceManager.getDefaultSharedPreferences(App.instance) }
         if (sp.getString("jwt-token", null) == null) {
             Toast.makeText(activity, "Login First", Toast.LENGTH_SHORT).show()
-            this.fragmentManager?.popBackStack()
-            Navigation.findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.loginFragment)
+            findNavController().navigate(R.id.loginFragment)
             return
         }
 

@@ -28,6 +28,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main_content.*
 import kotlinx.android.synthetic.main.nav_header.view.*
 import org.ignus.R
+import org.ignus.config.NAV_HEADER_BG_IMG
 import org.ignus.db.models.UserProfile
 import org.ignus.db.models.qrUrl
 import org.ignus.db.viewmodels.LoginViewModel
@@ -79,11 +80,8 @@ class MainActivity : AppCompatActivity() {
         val subTitle = navHeader.nav_header_email
 
 
-        viewModel.refreshUserProfile()
         viewModel.userProfile.observe(this, Observer {
 
-            // val avatarIcon = if (it.gender?.toLowerCase() == "f") girlIcons.random()
-            // else boyIcons.random()
             val avatarIcon = it.qrUrl("256")
 
             Glide.with(avatar)
@@ -106,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         Glide.with(bgImg)
-            .load("https://drive.google.com/uc?export=download&id=11pfTm0kR5prmJn9CAG0ctthQ3sEL-gLf")
+            .load(NAV_HEADER_BG_IMG)
             .apply(
                 RequestOptions()
                     .error(R.drawable.placeholder)

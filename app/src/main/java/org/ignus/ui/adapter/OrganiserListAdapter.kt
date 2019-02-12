@@ -49,7 +49,9 @@ class OrganiserListAdapter(private val organisers: List<Organiser>) :
                 .into(avatar)
 
             call.setOnClickListener {
-                App.instance.startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + organiser.phone)))
+                val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + organiser.phone))
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                App.instance.startActivity(intent)
             }
 
             mail.setOnClickListener {
@@ -59,6 +61,7 @@ class OrganiserListAdapter(private val organisers: List<Organiser>) :
                 intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(organiser.email))
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Ignus 2019")
                 intent.putExtra(Intent.EXTRA_TEXT, "Hi ${organiser.name}")
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 App.instance.startActivity(intent)
             }
 

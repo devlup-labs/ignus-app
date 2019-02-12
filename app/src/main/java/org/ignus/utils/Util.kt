@@ -3,6 +3,7 @@ package org.ignus.utils
 import android.content.Intent
 import android.content.res.Resources
 import android.net.Uri
+import android.util.Log
 import android.widget.Toast
 import org.ignus.App
 import org.ignus.db.models.Location
@@ -41,15 +42,18 @@ fun openGoogleMaps(location: Location?) {
     val pos = location.latitude + "," + location.longitude
     val uri = "https://www.google.com/maps/dir/?api=1&map_action=map&basemap=satellite&destination=$pos&travelmode=walking"
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     App.instance.startActivity(intent)
 }
 
 fun openURL(url: String?) {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     intent.data = Uri.parse(url)
+    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     try {
         App.instance.startActivity(intent)
     } catch (e: Exception) {
+        Log.d("suthar", e.toString())
         Toast.makeText(App.instance, "Cannot open URL", Toast.LENGTH_SHORT).show()
     }
 }

@@ -41,5 +41,6 @@
 
     <string name="registered_events">Registered Events</string>
     <string name="organisers">Organisers</string>
+    <string name="logout">Logout</string>
 
 </resources>

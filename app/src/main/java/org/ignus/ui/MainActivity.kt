@@ -3,6 +3,7 @@ package org.ignus.ui
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -27,6 +28,7 @@ import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main_content.*
 import kotlinx.android.synthetic.main.nav_header.view.*
+import org.ignus.App
 import org.ignus.R
 import org.ignus.config.NAV_HEADER_BG_IMG
 import org.ignus.db.models.UserProfile
@@ -36,6 +38,7 @@ import org.ignus.db.viewmodels.LoginViewModel
 
 class MainActivity : AppCompatActivity() {
 
+    private val sp by lazy { PreferenceManager.getDefaultSharedPreferences(App.instance) }
     private val viewModel by lazy { ViewModelProviders.of(this).get(LoginViewModel::class.java) }
 
     private val appBarConfiguration by lazy {
@@ -82,23 +85,38 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.userProfile.observe(this, Observer {
 
-            val avatarIcon = it.qrUrl("256")
+            if (it != null) {
+                val avatarIcon = it.qrUrl("256")
 
-            Glide.with(avatar)
-                .load(avatarIcon)
-                .apply(
-                    RequestOptions
-                        .circleCropTransform()
-                        .placeholder(ColorDrawable(Color.BLACK))
-                )
-                .into(avatar)
+                Glide.with(avatar)
+                    .load(avatarIcon)
+                    .apply(
+                        RequestOptions
+                            .circleCropTransform()
+                            .placeholder(ColorDrawable(Color.BLACK))
+                    )
+                    .into(avatar)
 
 
-            title.text = getString(R.string.full_name, it.user?.first_name, it.user?.last_name)
-            subTitle.text = it.user?.email
+                title.text = getString(R.string.full_name, it.user?.first_name, it.user?.last_name)
+                subTitle.text = it.user?.email
 
-            avatar.setOnClickListener { _ ->
-                showQR(it)
+                avatar.setOnClickListener { _ ->
+                    showQR(it)
+                }
+            } else {
+                Glide.with(avatar)
+                    .load(R.drawable.boy1)
+                    .apply(
+                        RequestOptions
+                            .circleCropTransform()
+                            .placeholder(ColorDrawable(Color.BLACK))
+                    )
+                    .into(avatar)
+
+                title.text = getString(R.string.nav_header_name)
+                subTitle.text = getString(R.string.nav_header_email)
+                avatar.setOnClickListener {}
             }
 
         })
@@ -117,8 +135,16 @@ class MainActivity : AppCompatActivity() {
         toolbar.title = title
     }
 
-    override fun onOptionsItemSelected(item: MenuItem) =
-        item.onNavDestinationSelected(findNavController(R.id.nav_host_fragment)) || super.onOptionsItemSelected(item)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.logout) {
+            sp.edit().remove("jwt-token").apply()
+            viewModel.deleteUserProfile()
+            return true
+        }
+        return item.onNavDestinationSelected(findNavController(R.id.nav_host_fragment)) || super.onOptionsItemSelected(
+            item
+        )
+    }
 
     override fun onSupportNavigateUp() = findNavController(this, R.id.nav_host_fragment).navigateUp(appBarConfiguration)
 
@@ -128,7 +154,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
         menuInflater.inflate(R.menu.main_options_menu, menu)
+
+        if (sp.getString("jwt-token", null) != null) menu?.removeItem(R.id.loginFragment)
+        else menu?.removeItem(R.id.logout)
+
         return true
     }
 

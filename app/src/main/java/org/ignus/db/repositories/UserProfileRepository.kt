@@ -78,4 +78,8 @@ class UserProfileRepository {
     private fun showToast(string: String) {
         Toast.makeText(App.instance, string, Toast.LENGTH_SHORT).show()
     }
+
+    fun deleteUserProfile() {
+        userProfileDao.delete()
+    }
 }

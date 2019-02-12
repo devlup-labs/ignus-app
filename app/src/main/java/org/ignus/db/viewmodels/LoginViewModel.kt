@@ -10,7 +10,7 @@ import org.ignus.db.repositories.UserProfileRepository
 class LoginViewModel : ViewModel() {
 
     private val userProfileRepository by lazy { UserProfileRepository() }
-    var userProfile: MutableLiveData<UserProfile> = MutableLiveData()
+    val userProfile: MutableLiveData<UserProfile?> = MutableLiveData()
 
     private lateinit var disposableObserver: DisposableObserver<UserProfile>
 
@@ -22,6 +22,11 @@ class LoginViewModel : ViewModel() {
     fun refreshUserProfile() {
         initObserver()
         userProfileRepository.getUserProfile().subscribe(disposableObserver)
+    }
+
+    fun deleteUserProfile() {
+        userProfileRepository.deleteUserProfile()
+        userProfile.postValue(null)
     }
 
     fun getLoading() = userProfileRepository.loading

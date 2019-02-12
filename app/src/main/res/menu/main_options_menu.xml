@@ -14,4 +14,9 @@
         android:id="@+id/loginFragment"
         android:icon="@drawable/nav_login"
         android:title="@string/nav_login" />
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/nav_login"
+        android:title="@string/logout" />
 </menu>

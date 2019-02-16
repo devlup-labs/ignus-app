@@ -47,7 +47,10 @@ class RegisteredTeamEventListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return MyViewHolder1(LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_1, parent, false))
+        return if (events.isNotEmpty()) MyViewHolder1(
+            LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_1, parent, false)
+        )
+        else MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.no_adapter_item, parent, false))
 
     }
 
@@ -56,7 +59,7 @@ class RegisteredTeamEventListAdapter(
     override fun getItemViewType(position: Int) = if (position == 0) 0 else 1
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as MyViewHolder1).bindData(events[position])
+        if (events.isNotEmpty()) (holder as MyViewHolder1).bindData(events[position])
     }
 
 
@@ -183,4 +186,6 @@ class RegisteredTeamEventListAdapter(
             dialog.show()
         }
     }
+
+    class MyViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }

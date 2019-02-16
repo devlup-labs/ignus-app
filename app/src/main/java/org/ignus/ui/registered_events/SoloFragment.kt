@@ -42,9 +42,6 @@ class SoloFragment : Fragment() {
 
         val layoutManager = GridLayoutManager(context, 1)
         recyclerView.layoutManager = layoutManager
-
-        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, layoutManager.orientation)
-        recyclerView.addItemDecoration(dividerItemDecoration)
     }
 
 

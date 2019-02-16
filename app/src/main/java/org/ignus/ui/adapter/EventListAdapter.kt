@@ -50,13 +50,17 @@ class EventListAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == 0 && showHeader)
             MyViewHolder0(LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_0, parent, false))
-        else MyViewHolder1(LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_1, parent, false))
+        else {
+            if (!eventCategory.events.isNullOrEmpty())
+                MyViewHolder1(LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_1, parent, false))
+            else MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.no_adapter_item, parent, false))
+        }
 
     }
 
     override fun getItemCount() =
         if (showHeader) (eventCategory.events?.size ?: 0) + 1
-        else eventCategory.events?.size ?: 0
+        else if (!eventCategory.events.isNullOrEmpty()) eventCategory.events.size else 1
 
     override fun getItemViewType(position: Int) = if (position == 0) 0 else 1
 
@@ -66,7 +70,10 @@ class EventListAdapter(
                 0 -> (holder as MyViewHolder0).bindData(eventCategory.about)
                 1 -> (holder as MyViewHolder1).bindData(eventCategory.events?.get(position - 1), position - 1)
             }
-        else (holder as MyViewHolder1).bindData(eventCategory.events?.get(position), position)
+        else {
+            if (!eventCategory.events.isNullOrEmpty())
+                (holder as MyViewHolder1).bindData(eventCategory.events[position], position)
+        }
     }
 
 
@@ -208,4 +215,6 @@ class EventListAdapter(
             else Html.fromHtml(about)?.trim()?.toString()
         }
     }
+
+    class MyViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }

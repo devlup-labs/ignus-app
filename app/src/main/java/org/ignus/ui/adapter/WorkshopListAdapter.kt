@@ -31,25 +31,34 @@ import org.ignus.utils.openGoogleMaps
 import org.ignus.utils.openURL
 
 class WorkshopListAdapter(private val activity: Activity) :
-    RecyclerView.Adapter<WorkshopListAdapter.MyViewHolder>() {
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var list: List<Workshop> = emptyList()
     private val sp by lazy { PreferenceManager.getDefaultSharedPreferences(activity) }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_1, parent, false)
-        return MyViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if (viewType == 0) {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.no_adapter_item, parent, false)
+            MyViewHolder2(view)
+        } else {
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.event_list_card_1, parent, false)
+            MyViewHolder(view)
+        }
     }
 
-    override fun getItemCount() = list.size
+    override fun getItemCount() = if (list.isEmpty()) 1 else list.size
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bindData(list[position])
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (list.isNotEmpty()) (holder as MyViewHolder).bindData(list[position])
     }
 
     fun setList(list: List<Workshop>) {
         this.list = list
         notifyDataSetChanged()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (list.isEmpty()) 0 else 1
     }
 
 
@@ -173,4 +182,6 @@ class WorkshopListAdapter(private val activity: Activity) :
             dialog.show()
         }
     }
+
+    class MyViewHolder2(view: View) : RecyclerView.ViewHolder(view)
 }

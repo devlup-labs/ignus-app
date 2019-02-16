@@ -42,7 +42,7 @@ class EventCategoryRepository {
             }, {
                 loading.postValue(false)
                 Log.d("suthar", "Error:  $it")
-                Toast.makeText(App.instance, "No Network Connectivity!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(App.instance, "Something went wrong!", Toast.LENGTH_SHORT).show()
             })
     }
 }

@@ -79,6 +79,6 @@ class RegisteredEventsViewModel : ViewModel() {
 
     private fun showError(it: Throwable) {
         Log.d("suthar", "Error, $it")
-        Toast.makeText(App.instance, "No internet connectivity!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(App.instance, "Something went wrong!", Toast.LENGTH_SHORT).show()
     }
 }

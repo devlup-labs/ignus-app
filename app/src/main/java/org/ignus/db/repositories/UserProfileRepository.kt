@@ -72,7 +72,7 @@ class UserProfileRepository {
                         sp.edit().remove("jwt-token").apply()
                         showToast("Token expired please login again")
                     }
-                    else -> showToast("Something wrong happened!")
+                    else -> showToast("Something went wrong!")
                 }
                 Log.d("suthar", "Error, ${it.message}")
                 loading.postValue(false)

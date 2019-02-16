@@ -42,7 +42,7 @@ class WorkshopListRepository {
             }, {
                 loading.postValue(false)
                 Log.d("suthar", "Error:  $it")
-                Toast.makeText(App.instance, "Something wrong happened!", Toast.LENGTH_LONG).show()
+                Toast.makeText(App.instance, "Something went wrong!", Toast.LENGTH_LONG).show()
             })
     }
 

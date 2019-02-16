@@ -6,6 +6,7 @@
     <string name="nav_home">Home</string>
     <string name="nav_event_details">Events Details</string>
     <string name="nav_workshops">Workshops</string>
+    <string name="nav_informal_events">Informal Events</string>
     <string name="nav_contacts">Contacts</string>
     <string name="nav_sponsors">Sponsors</string>
     <string name="nav_about_ignus">About Ignus</string>

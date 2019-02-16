@@ -19,4 +19,6 @@
     <string name="nav_confession">इकबालिया बयान</string>
     <string name="registered_events">पंजीकृत घटनाएँ</string>
     <string name="organisers">आयोजकों</string>
+    <string name="nav_informal_events">अनौपचारिक घटनाएँ</string>
+    <string name="logout">लोग आउट</string>
 </resources>

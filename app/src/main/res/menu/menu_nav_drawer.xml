@@ -16,6 +16,11 @@
             android:title="@string/nav_workshops" />
 
         <item
+            android:id="@+id/informalEventsFragment"
+            android:icon="@drawable/ic_prakriti"
+            android:title="@string/nav_informal_events"/>
+
+        <item
             android:id="@+id/prakritiEventsFragment"
             android:icon="@drawable/ic_prakriti"
             android:title="@string/bottom_nav_prakriti" />

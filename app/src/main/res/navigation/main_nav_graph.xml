@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/homeFragment">
 
-    <!--<include-->
-    <!--android:id="@+id/bottom_nav_graph0"-->
-    <!--app:graph="@navigation/bottom_nav_graph" />-->
-
     <fragment
         android:id="@+id/homeFragment"
         android:name="org.ignus.ui.HomeFragment"
@@ -77,4 +73,9 @@
         android:name="org.ignus.ui.registered_events.RegisteredEventsFragment"
         android:label="Registered Events"
         tools:layout="@layout/fragment_registered_events" />
+    <fragment
+        android:id="@+id/informalEventsFragment"
+        android:name="org.ignus.ui.InformalEventsFragment"
+        android:label="Informal Events"
+        tools:layout="@layout/fragment_informal_events" />
 </navigation>

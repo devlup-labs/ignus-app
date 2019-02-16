@@ -14,8 +14,8 @@ android {
         applicationId "org.ignus.app"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 103
-        versionName "v1.03"
+        versionCode 104
+        versionName "v1.04"
         testInstrumentationRunner "androidx.layout.runner.AndroidJUnitRunner"
         resValue "string", "google_maps_key", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "AIzaSyAGsYmTp2nzBdnOAxveUjC7XYHFhc_vSic")
     }

@@ -1,6 +1,8 @@
 package org.ignus.ui.adapter
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.telephony.PhoneNumberUtils
 import android.view.LayoutInflater
@@ -45,7 +47,8 @@ class OrganiserListAdapter(private val organisers: List<Organiser>) :
             if (phoneNumber.length <= 10) phoneNumber = "+91$phoneNumber"
             phone.text = PhoneNumberUtils.formatNumber(phoneNumber, Locale.getDefault().country)
             Glide.with(avatar).load(organiser.avatar_url)
-                .apply(RequestOptions.circleCropTransform())
+                .apply(RequestOptions.circleCropTransform()
+                    .placeholder(ColorDrawable(Color.BLACK)))
                 .into(avatar)
 
             call.setOnClickListener {

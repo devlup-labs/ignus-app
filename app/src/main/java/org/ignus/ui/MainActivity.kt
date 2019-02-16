@@ -32,7 +32,7 @@ import org.ignus.App
 import org.ignus.R
 import org.ignus.config.NAV_HEADER_BG_IMG
 import org.ignus.db.models.UserProfile
-import org.ignus.db.models.qrUrl
+import org.ignus.utils.qrUrl
 import org.ignus.db.viewmodels.LoginViewModel
 
 

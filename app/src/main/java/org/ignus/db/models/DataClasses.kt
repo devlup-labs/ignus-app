@@ -122,9 +122,6 @@ data class User(
     val username: String?
 )
 
-fun UserProfile.qrUrl(size: String) =
-    "https://chart.apis.google.com/chart?chs=${size}x$size&cht=qr&chl=${this.uuid}&choe=UTF-8"
-
 @Keep
 data class TeamEvents(
     val event: Event,
@@ -149,4 +146,13 @@ data class Developer(
     val github: String?,
     val email: String?,
     val designation: String?
+)
+
+@Keep
+@Entity
+data class Message(
+    val message: String?,
+    val username: String?,
+    @PrimaryKey
+    val timestamp: Long?
 )

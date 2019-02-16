@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import org.ignus.App
 import org.ignus.db.models.Location
+import org.ignus.db.models.UserProfile
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -34,13 +35,28 @@ val String.formatTime: String
         }
     }
 
+val Long.formatShortTime: String
+    get() {
+        val date = Date(this)
+        val formatter = SimpleDateFormat("hh:mm aa", Locale.getDefault())
+        return try {
+            formatter.format(date)
+        } catch (e: Exception) {
+            "Error"
+        }
+    }
+
+fun UserProfile.qrUrl(size: String) =
+    "https://chart.apis.google.com/chart?chs=${size}x$size&cht=qr&chl=${this.uuid}&choe=UTF-8"
+
 fun openGoogleMaps(location: Location?) {
     if (location == null) {
         Toast.makeText(App.instance, "Location not available!", Toast.LENGTH_SHORT).show()
         return
     }
     val pos = location.latitude + "," + location.longitude
-    val uri = "https://www.google.com/maps/dir/?api=1&map_action=map&basemap=satellite&destination=$pos&travelmode=walking"
+    val uri =
+        "https://www.google.com/maps/dir/?api=1&map_action=map&basemap=satellite&destination=$pos&travelmode=walking"
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     App.instance.startActivity(intent)

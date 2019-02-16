@@ -5,12 +5,10 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import org.ignus.utils.px
 
-class EventCategoryItemDecoration : RecyclerView.ItemDecoration() {
+class EventCategoryItemDecoration(private val space: Int = 16.px) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
-
-        val space = 16.px
 
         outRect.bottom = 2 * space
         outRect.left = space

@@ -17,7 +17,7 @@
 
         <item
             android:id="@+id/informalEventsFragment"
-            android:icon="@drawable/ic_prakriti"
+            android:icon="@drawable/nav_informal_events"
             android:title="@string/nav_informal_events"/>
 
         <item

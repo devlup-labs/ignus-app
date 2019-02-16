@@ -32,8 +32,8 @@ import org.ignus.App
 import org.ignus.R
 import org.ignus.config.NAV_HEADER_BG_IMG
 import org.ignus.db.models.UserProfile
-import org.ignus.utils.qrUrl
 import org.ignus.db.viewmodels.LoginViewModel
+import org.ignus.utils.qrUrl
 
 
 class MainActivity : AppCompatActivity() {
@@ -143,8 +143,17 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp() = findNavController(this, R.id.nav_host_fragment).navigateUp(appBarConfiguration)
 
     override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) drawerLayout.closeDrawer(GravityCompat.START)
-        else super.onBackPressed()
+        when {
+            drawerLayout.isDrawerOpen(GravityCompat.START) -> drawerLayout.closeDrawer(GravityCompat.START)
+            findNavController(
+                this,
+                R.id.nav_host_fragment
+            ).currentDestination?.id == R.id.loginFragment -> findNavController(
+                this,
+                R.id.nav_host_fragment
+            ).navigate(R.id.homeFragment)
+            else -> super.onBackPressed()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

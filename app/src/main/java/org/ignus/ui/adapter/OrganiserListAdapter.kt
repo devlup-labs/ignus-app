@@ -47,8 +47,10 @@ class OrganiserListAdapter(private val organisers: List<Organiser>) :
             if (phoneNumber.length <= 10) phoneNumber = "+91$phoneNumber"
             phone.text = PhoneNumberUtils.formatNumber(phoneNumber, Locale.getDefault().country)
             Glide.with(avatar).load(organiser.avatar_url)
-                .apply(RequestOptions.circleCropTransform()
-                    .placeholder(ColorDrawable(Color.BLACK)))
+                .apply(
+                    RequestOptions.circleCropTransform()
+                        .placeholder(ColorDrawable(Color.BLACK))
+                )
                 .into(avatar)
 
             call.setOnClickListener {

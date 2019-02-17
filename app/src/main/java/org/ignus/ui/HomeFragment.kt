@@ -80,7 +80,7 @@ class HomeFragment : Fragment() {
         )
 
         homeSwipeLayout.viewTreeObserver.addOnScrollChangedListener {
-            if (homeWebView != null) homeSwipeLayout.isEnabled = homeWebView.scrollY == 0
+            if (homeWebView != null && homeSwipeLayout != null) homeSwipeLayout.isEnabled = homeWebView.scrollY == 0
         }
     }
 

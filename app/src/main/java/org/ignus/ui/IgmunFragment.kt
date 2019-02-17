@@ -32,7 +32,7 @@ class IgmunFragment : Fragment() {
         val wb = igmunWebView
         wb.settings.javaScriptEnabled = true
         wb.settings.useWideViewPort = true
-        wb.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+        wb.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
         wb.loadUrl(url)
 
         wb.webViewClient = object : WebViewClient() {

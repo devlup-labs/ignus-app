@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebResourceRequest
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
@@ -30,6 +31,7 @@ class AboutIgnusFragment : Fragment() {
         wb.settings.javaScriptEnabled = true
         wb.settings.loadWithOverviewMode = true
         wb.settings.useWideViewPort = true
+        wb.settings.cacheMode = WebSettings.LOAD_NO_CACHE
         wb.loadUrl("https://ignus.org/#about_us")
 
         wb.webViewClient = object : WebViewClient() {

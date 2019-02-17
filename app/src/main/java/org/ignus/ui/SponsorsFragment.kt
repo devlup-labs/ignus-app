@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebResourceRequest
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
@@ -26,11 +27,14 @@ class SponsorsFragment : Fragment() {
 
     private fun setUpWebView() {
 
+        val url = "https://ignus.org/sponsors/"
+
         val wb = sponsorsWebView
         wb.settings.javaScriptEnabled = true
         wb.settings.loadWithOverviewMode = true
         wb.settings.useWideViewPort = true
-        wb.loadUrl("https://ignus.org/sponsors/")
+        wb.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
+        wb.loadUrl(url)
 
         wb.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
@@ -39,7 +43,7 @@ class SponsorsFragment : Fragment() {
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                view?.loadUrl("https://ignus.org/sponsors/")
+                view?.loadUrl(url)
                 return true
             }
         }

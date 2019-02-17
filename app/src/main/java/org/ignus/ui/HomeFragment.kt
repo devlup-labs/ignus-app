@@ -35,7 +35,13 @@ class HomeFragment : Fragment() {
     private fun setDaysLeft() {
         val date = Date(1550687400000)
         val diff = date.time - System.currentTimeMillis()
-        daysLeft.text = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS).toString()
+        val x: Long = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS)
+        if (x < 0) {
+            daysLeft.text = (-x).toString()
+            daysLeftText.text = "day"
+        } else {
+            daysLeft.text = x.toString()
+        }
     }
 
     private fun setUpWebView() {

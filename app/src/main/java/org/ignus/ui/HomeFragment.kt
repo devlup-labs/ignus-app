@@ -56,8 +56,8 @@ class HomeFragment : Fragment() {
         wb.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                homeSwipeLayout.isRefreshing = false
-                if (isConnected() && this@HomeFragment.isVisible) wb.visibility = View.VISIBLE
+                homeSwipeLayout?.isRefreshing = false
+                if (isConnected() && this@HomeFragment.isVisible) wb?.visibility = View.VISIBLE
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
@@ -80,7 +80,7 @@ class HomeFragment : Fragment() {
         )
 
         homeSwipeLayout.viewTreeObserver.addOnScrollChangedListener {
-            if (homeWebView != null && homeSwipeLayout != null) homeSwipeLayout.isEnabled = homeWebView.scrollY == 0
+            if (homeWebView != null) homeSwipeLayout?.isEnabled = homeWebView.scrollY == 0
         }
     }
 

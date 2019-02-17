@@ -25,7 +25,7 @@ class ConfessionRepository {
     private fun registerFirebaseListener() {
 
         ref.keepSynced(true)
-        ref.limitToLast(100).addValueEventListener(object : ValueEventListener {
+        ref.limitToLast(250).addValueEventListener(object : ValueEventListener {
 
             override fun onCancelled(p0: DatabaseError) {
 
@@ -37,7 +37,8 @@ class ConfessionRepository {
                     val text = child.child("message").value.toString()
                     val ig = child.child("username").value.toString()
                     val timestamp = child.child("timestamp").value?.toString()?.toLong() ?: 0
-                    val message = Message(text, ig, timestamp)
+                    val key = child.key
+                    val message = Message(text, ig, timestamp, key)
                     messages.add(message)
                 }
                 confessionDao.delete()

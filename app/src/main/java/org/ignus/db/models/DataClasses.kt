@@ -154,5 +154,6 @@ data class Message(
     val message: String?,
     val username: String?,
     @PrimaryKey
-    val timestamp: Long?
+    val timestamp: Long?,
+    val key: String?
 )

@@ -30,4 +30,8 @@ class ConfessionViewModel : ViewModel() {
     fun sendNewMessage(message: Message) {
         ref.push().setValue(message)
     }
+
+    fun deleteMessage(key: String) {
+        ref.child(key).removeValue()
+    }
 }

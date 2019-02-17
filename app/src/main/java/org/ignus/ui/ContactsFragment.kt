@@ -12,6 +12,7 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import org.ignus.R
+import org.ignus.utils.openURL
 
 
 class ContactsFragment : Fragment() {
@@ -43,7 +44,7 @@ class ContactsFragment : Fragment() {
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                view?.loadUrl(url)
+                if (request?.url?.toString()?.contains("https://ignus.org") == false) openURL(request.url?.toString())
                 return true
             }
         }

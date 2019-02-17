@@ -14,7 +14,7 @@
         android:background="@drawable/oval"
         android:backgroundTint="#FFEB3B"
         android:padding="4dp"
-        android:text="You're All Caugth Up"
+        android:text="No Events"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="16sp" />

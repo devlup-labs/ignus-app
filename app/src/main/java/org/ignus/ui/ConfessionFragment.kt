@@ -79,7 +79,7 @@ class ConfessionFragment : Fragment() {
             hideSoftKeyboard()
             val snackbar = Snackbar.make(
                 view, "To prevent spam you can't send message without login. We do not store your personal " +
-                        "information. For more info read out Privacy and Policy.",
+                        "information. For more info read our Privacy and Policy.",
                 Snackbar.LENGTH_LONG
             )//.setAction("Login") { findNavController().navigate(R.id.loginFragment) }
             snackbar.duration = 6000

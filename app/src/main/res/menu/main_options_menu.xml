@@ -11,6 +11,11 @@
         android:title="@string/nav_about_ignus" />
 
     <item
+        android:id="@+id/igmunFragment"
+        android:icon="@drawable/mun"
+        android:title="@string/nav_igmun" />
+
+    <item
         android:id="@+id/loginFragment"
         android:icon="@drawable/nav_login"
         android:title="@string/nav_login" />

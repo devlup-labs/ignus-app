@@ -78,4 +78,9 @@
         android:name="org.ignus.ui.InformalEventsFragment"
         android:label="Informal Events"
         tools:layout="@layout/fragment_informal_events" />
+    <fragment
+        android:id="@+id/igmunFragment"
+        android:name="org.ignus.ui.IgmunFragment"
+        android:label="IGMUN"
+        tools:layout="@layout/fragment_igmun" />
 </navigation>

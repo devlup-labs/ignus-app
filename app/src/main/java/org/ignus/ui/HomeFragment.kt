@@ -56,10 +56,8 @@ class HomeFragment : Fragment() {
         wb.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                if (isConnected() && this@HomeFragment.isVisible) {
-                    wb.visibility = View.VISIBLE
-                    homeSwipeLayout.isRefreshing = false
-                }
+                homeSwipeLayout.isRefreshing = false
+                if (isConnected() && this@HomeFragment.isVisible) wb.visibility = View.VISIBLE
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {

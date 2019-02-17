@@ -12,6 +12,7 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_igmun.*
 import org.ignus.R
+import org.ignus.utils.openURL
 
 
 class IgmunFragment : Fragment() {
@@ -38,6 +39,11 @@ class IgmunFragment : Fragment() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 if (this@IgmunFragment.isVisible) igmunProgressBar.visibility = View.GONE
+            }
+
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                openURL(request?.url?.toString())
+                return true
             }
         }
     }

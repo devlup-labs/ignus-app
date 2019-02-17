@@ -12,6 +12,7 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_about_ignus.*
 import org.ignus.R
+import org.ignus.utils.openURL
 
 
 class AboutIgnusFragment : Fragment() {
@@ -29,7 +30,6 @@ class AboutIgnusFragment : Fragment() {
 
         val wb = aboutWebView
         wb.settings.javaScriptEnabled = true
-        wb.settings.loadWithOverviewMode = true
         wb.settings.useWideViewPort = true
         wb.settings.cacheMode = WebSettings.LOAD_NO_CACHE
         wb.loadUrl("https://ignus.org/#about_us")
@@ -41,7 +41,7 @@ class AboutIgnusFragment : Fragment() {
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                view?.loadUrl("https://ignus.org/#about_us")
+                openURL(request?.url?.toString())
                 return true
             }
         }

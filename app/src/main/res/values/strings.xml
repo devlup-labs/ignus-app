@@ -14,6 +14,7 @@
     <string name="nav_developers">Developers</string>
     <string name="nav_login">Login</string>
     <string name="nav_confession">Confession</string>
+    <string name="nav_igmun" translatable="false">IGMUN</string>
 
     <string name="nav_header_name" translatable="false">IGNUS 2019</string>
     <string name="nav_header_email" translatable="false">ignus@ignus.org</string>
@@ -43,9 +44,5 @@
     <string name="registered_events">Registered Events</string>
     <string name="organisers">Organisers</string>
     <string name="logout">Logout</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nav_igmun">IGMUN</string>
 
 </resources>

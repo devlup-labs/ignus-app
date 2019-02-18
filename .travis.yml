@@ -9,6 +9,7 @@ android:
   - extra-android-support
   - extra-android-m2repository
   - extra-google-m2repository
-
+before_install:
+  - cp app/google-services.json.example app/google-services.json
 licenses:
   - '.+'

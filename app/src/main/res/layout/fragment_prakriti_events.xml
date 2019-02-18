@@ -4,7 +4,7 @@
     android:id="@+id/prakritiSwipeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.PrakritiEventsFragment">
+    tools:context=".app.ui.PrakritiEventsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/prakritiEventsRecyclerView"

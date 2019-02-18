@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".App"
+        android:name=".app.App"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@drawable/ic_launcher_foreground"
@@ -20,7 +20,7 @@
         android:resizeableActivity="false"
         tools:targetApi="n">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".app.ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBar">
             <intent-filter>
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".services.MyFirebaseMessagingService">
+        <service android:name=".app.services.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

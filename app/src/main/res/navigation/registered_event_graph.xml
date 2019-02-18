@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/soloFragment"
-        android:name="org.ignus.ui.registered_events.SoloFragment"
+        android:name="org.ignus.app.ui.registered_events.SoloFragment"
         android:label="fragment_solo"
         tools:layout="@layout/fragment_registered_solo" />
     <fragment
         android:id="@+id/teamFragment"
-        android:name="org.ignus.ui.registered_events.TeamFragment"
+        android:name="org.ignus.app.ui.registered_events.TeamFragment"
         android:label="fragment_team"
         tools:layout="@layout/fragment_registered_team" />
     <fragment
         android:id="@+id/workshopFragment"
-        android:name="org.ignus.ui.registered_events.WorkshopFragment"
+        android:name="org.ignus.app.ui.registered_events.WorkshopFragment"
         android:label="fragment_registered_workshop"
         tools:layout="@layout/fragment_registered_workshop" />
 </navigation>

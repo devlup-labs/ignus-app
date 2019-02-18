@@ -4,7 +4,7 @@
     android:id="@+id/informalSwipeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.InformalEventsFragment">
+    tools:context=".app.ui.InformalEventsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/informalEventsRecyclerView"

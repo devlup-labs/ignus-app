@@ -6,12 +6,12 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="org.ignus.ui.HomeFragment"
+        android:name="org.ignus.app.ui.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/eventCategoriesFragment"
-        android:name="org.ignus.ui.EventCategoriesFragment"
+        android:name="org.ignus.app.ui.EventCategoriesFragment"
         android:label="Event Categories"
         tools:layout="@layout/fragment_event_categories">
         <action
@@ -20,67 +20,67 @@
     </fragment>
     <fragment
         android:id="@+id/workshopsFragment"
-        android:name="org.ignus.ui.WorkshopsFragment"
+        android:name="org.ignus.app.ui.WorkshopsFragment"
         android:label="Workshops"
         tools:layout="@layout/fragment_workshops" />
     <fragment
         android:id="@+id/contactsFragment"
-        android:name="org.ignus.ui.ContactsFragment"
+        android:name="org.ignus.app.ui.ContactsFragment"
         android:label="Contacts"
         tools:layout="@layout/fragment_contacts" />
     <fragment
         android:id="@+id/sponsorsFragment"
-        android:name="org.ignus.ui.SponsorsFragment"
+        android:name="org.ignus.app.ui.SponsorsFragment"
         android:label="Sponsors"
         tools:layout="@layout/fragment_sponsors" />
     <fragment
         android:id="@+id/aboutIgnusFragment"
-        android:name="org.ignus.ui.AboutIgnusFragment"
+        android:name="org.ignus.app.ui.AboutIgnusFragment"
         android:label="About Ignus"
         tools:layout="@layout/fragment_about_ignus" />
     <fragment
         android:id="@+id/eventListFragment"
-        android:name="org.ignus.ui.EventListFragment"
+        android:name="org.ignus.app.ui.EventListFragment"
         android:label="Event List"
         tools:layout="@layout/fragment_event_list" />
     <fragment
         android:id="@+id/prakritiEventsFragment"
-        android:name="org.ignus.ui.PrakritiEventsFragment"
+        android:name="org.ignus.app.ui.PrakritiEventsFragment"
         android:label="Prakriti"
         tools:layout="@layout/fragment_prakriti_events" />
     <fragment
         android:id="@+id/mapsFragment"
-        android:name="org.ignus.ui.MapsFragment"
+        android:name="org.ignus.app.ui.MapsFragment"
         android:label="IITJ Map"
         tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="org.ignus.ui.LoginFragment"
+        android:name="org.ignus.app.ui.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/developersFragment"
-        android:name="org.ignus.ui.DevelopersFragment"
+        android:name="org.ignus.app.ui.DevelopersFragment"
         android:label="Developers"
         tools:layout="@layout/fragment_developers" />
     <fragment
         android:id="@+id/confessionFragment"
-        android:name="org.ignus.ui.ConfessionFragment"
+        android:name="org.ignus.app.ui.ConfessionFragment"
         android:label="Confession"
         tools:layout="@layout/fragment_confession" />
     <fragment
         android:id="@+id/registeredEventsFragment"
-        android:name="org.ignus.ui.registered_events.RegisteredEventsFragment"
+        android:name="org.ignus.app.ui.registered_events.RegisteredEventsFragment"
         android:label="Registered Events"
         tools:layout="@layout/fragment_registered_events" />
     <fragment
         android:id="@+id/informalEventsFragment"
-        android:name="org.ignus.ui.InformalEventsFragment"
+        android:name="org.ignus.app.ui.InformalEventsFragment"
         android:label="Informal Events"
         tools:layout="@layout/fragment_informal_events" />
     <fragment
         android:id="@+id/igmunFragment"
-        android:name="org.ignus.ui.IgmunFragment"
+        android:name="org.ignus.app.ui.IgmunFragment"
         android:label="IGMUN"
         tools:layout="@layout/fragment_igmun" />
 </navigation>

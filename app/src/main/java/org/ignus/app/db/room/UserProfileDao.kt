@@ -1,0 +1,21 @@
+package org.ignus.app.db.room
+
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import io.reactivex.Observable
+import org.ignus.app.db.models.UserProfile
+
+@Dao
+abstract class UserProfileDao {
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract fun save(userProfile: UserProfile)
+
+    @Query("SELECT * FROM UserProfile")
+    abstract fun get(): Observable<UserProfile>
+
+    @Query("DELETE FROM UserProfile")
+    abstract fun delete()
+}
